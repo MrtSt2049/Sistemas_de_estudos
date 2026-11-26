@@ -1,36 +1,53 @@
-# Segredos
+# Environment variables (NEVER commit secrets)
 .env
-.env.local
-.env.*.local
+.env.*
 !.env.example
 !.env.local.example
+backend/.env
+frontend/.env.local
 
-# Python
+# Python / Backend
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.Python
 .venv/
 venv/
-__pycache__/
-*.pyc
+env/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 htmlcov/
 .coverage
 coverage.xml
+backend/staticfiles/
+backend/media/
 
-# Node / Next.js
+# Node / Frontend
 node_modules/
-.next/
-out/
-coverage/
-playwright-report/
-test-results/
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/coverage/
+frontend/playwright-report/
+frontend/test-results/
 *.tsbuildinfo
-next-env.d.ts
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
 
-# Logs, IDE e SO
+# Database dumps & logs
+*.sql.gz
+*.dump
 *.log
-.idea/
-.vscode/
+
+# OS & Editors
 .DS_Store
 Thumbs.db
-desktop.ini
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.swp
+*.swo

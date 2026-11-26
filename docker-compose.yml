@@ -1,9 +1,9 @@
-# RASCUNHO da Fase 0 (ver DEVELOPMENT_PLAN.md, seção 3.10.5).
-# Ainda NÃO funciona: backend/Dockerfile e frontend/Dockerfile serão criados na Fase 0,
-# assim como backend/.env e frontend/.env.local (a partir dos arquivos .env.example).
+# Study Platform — Docker Compose (DEVELOPMENT_PLAN §3.10.5)
 #
-# Com Supabase:     docker compose up --build
+# Com Supabase Dev: docker compose up --build
 # Com banco local:  docker compose --profile local-db up --build
+# Migrações (nunca automáticas):
+#   docker compose run --rm backend python manage.py migrate
 name: study-platform
 
 services:
@@ -28,17 +28,17 @@ services:
       - frontend_node_modules:/app/node_modules
     networks: [app-net]
 
-  db:                                   # opcional, somente com --profile local-db
+  db:
     profiles: ["local-db"]
-    image: postgres:17                  # alinhar à versão do projeto Supabase (verificar no painel; D-13)
+    image: postgres:17
     environment:
-      POSTGRES_DB: ${LOCAL_DB_NAME}
-      POSTGRES_USER: ${LOCAL_DB_USER}
-      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD}
+      POSTGRES_DB: ${LOCAL_DB_NAME:-study_platform}
+      POSTGRES_USER: ${LOCAL_DB_USER:-study_platform}
+      POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD:-study_platform}
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U ${LOCAL_DB_USER} -d ${LOCAL_DB_NAME}"]
+      test: ["CMD-SHELL", "pg_isready -U ${LOCAL_DB_USER:-study_platform} -d ${LOCAL_DB_NAME:-study_platform}"]
       interval: 5s
       retries: 10
     networks: [app-net]
