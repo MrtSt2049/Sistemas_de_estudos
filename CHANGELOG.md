@@ -7,14 +7,19 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/); 
 
 ### Adicionado
 - `DEVELOPMENT_PLAN.md`: plano técnico completo (requisitos, arquitetura, modelagem do banco para PostgreSQL/Supabase, API, infraestrutura, testes, roadmap, riscos e critérios de conclusão).
-- `README.md`, `CONTRIBUTING.md` e `docs/` (`ARCHITECTURE.md`, `DATABASE.md`, `API.md`, `ROADMAP.md`).
-- `docker-compose.yml` de rascunho (os Dockerfiles serão criados na Fase 0).
+- `README.md`, `CONTRIBUTING.md` e `docs/` (`ARCHITECTURE.md`, `DATABASE.md`, `API.md`, `ROADMAP.md`, `DEPLOYMENT_PLAN.md`).
+- `docs/adr/`: registros `ADR-001` a `ADR-014` formalizando as decisões arquiteturais da Fase 0.
+- Raiz do repositório: `.gitignore`, `.editorconfig`, `.pre-commit-config.yaml` e pipeline CI em `.github/workflows/ci.yml`.
+- Backend (`backend/`): projeto Django 5.2 LTS + DRF com settings por ambiente (`base`, `local`, `test`, `production`), apps `core` (`OwnedModel`, `OwnedQuerysetMixin`, `OwnedPrimaryKeyRelatedField`, exceções padronizadas, logs JSON com `request_id`, `/healthz`, `/readyz`, `Tag`) e `accounts` (`User` por e-mail com UUID, SimpleJWT em cookies `HttpOnly` + CSRF, rotação/blacklist, perfil, troca de senha), migrações iniciais + migração condicional de segurança RLS do Supabase, `Dockerfile` multi-stage e testes (`test_health.py`, `test_auth.py`, `test_isolation_contract.py`).
+- Frontend (`frontend/`): projeto Next.js (App Router, TypeScript `strict`, saída `standalone`), tokens claro/escuro do Design System Voltage sem *flash*, `api-client` centralizado com cookies `HttpOnly` + `X-CSRFToken` + refresh único, shell autenticado, tela `/login`, `Dockerfile` multi-stage e teste unitário com Vitest.
+- `docker-compose.yml` atualizado com `backend`, `frontend` e perfil opcional `local-db`.
 
 ### Alterado
 - Consolidação das pastas `Estudos` e `Site_de_estudos` em uma só (`Site_de_estudos`). O protótipo Next.js + Drizzle foi removido; dados, regras de domínio, testes e decisões úteis foram preservados em `docs/legacy-prototype/` e o prompt do design system em `docs/design/`. PDFs e mini-sites de disciplina ficam em `Sistema_de_estudos/Materiais/`, fora do repositório.
 
 ### Decisões
-- D-14 resolvida: o protótipo é apenas referência; reaproveitam-se dados e regras, não código.
+- `D-01`, `D-03`, `D-08`, `D-11`, `D-13` confirmadas na Fase 0 (`local-db` para testes/CI + Supabase Dev; JWT em cookies `HttpOnly`; nome provisório e licença privada; `pip` + `requirements/*.txt`; Python 3.13, Django 5.2 LTS, Node 22/24 LTS, Next.js estável).
+- `D-14` resolvida: o protótipo é apenas referência; reaproveitam-se dados e regras, não código.
 - Backend Django + DRF e frontend Next.js desacoplados por API REST.
 - Supabase usado **apenas como PostgreSQL gerenciado**, acessado somente pelo backend (ADR-02).
 - Sem integração com inteligência artificial.
