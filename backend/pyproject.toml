@@ -1,0 +1,59 @@
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+exclude = ["*/migrations/*", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "DJ", "S"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S105", "S106"]
+"tests/**" = ["S105", "S106"]
+
+[tool.mypy]
+python_version = "3.13"
+plugins = ["mypy_django_plugin.main", "mypy_drf_plugin.main"]
+strict = false
+warn_unused_ignores = true
+warn_redundant_casts = true
+disallow_untyped_defs = true
+check_untyped_defs = true
+exclude = ["migrations/"]
+
+[[tool.mypy.overrides]]
+module = ["environ", "environ.*"]
+ignore_missing_imports = true
+
+[tool.django-stubs]
+django_settings_module = "config.settings.test"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings.test"
+python_files = ["test_*.py"]
+addopts = "-ra --strict-markers"
+
+[tool.coverage.run]
+source = ["apps"]
+omit = ["*/migrations/*", "*/tests/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+
+[tool.importlinter]
+root_packages = ["apps", "config"]
+
+[[tool.importlinter.contracts]]
+name = "Core must not depend on domain apps"
+type = "forbidden"
+source_modules = ["apps.core"]
+forbidden_modules = ["apps.accounts"]
+
+[[tool.importlinter.contracts]]
+name = "Layered unidirectional app hierarchy (F0)"
+type = "layers"
+layers = [
+    "apps.accounts",
+    "apps.core",
+]
