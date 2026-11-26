@@ -1,0 +1,36 @@
+# Segredos
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+next-env.d.ts
+
+# Logs, IDE e SO
+*.log
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
