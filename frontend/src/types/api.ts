@@ -369,6 +369,94 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/study-sessions/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_study_sessions_list"];
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_study_sessions_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/study-sessions/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_study_sessions_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        delete: operations["api_v1_study_sessions_destroy"];
+        options?: never;
+        head?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        patch: operations["api_v1_study_sessions_partial_update"];
+        trace?: never;
+    };
+    "/api/v1/study-sessions/active/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_study_sessions_active_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/study-sessions/active/finish/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_study_sessions_active_finish_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/study-sessions/start/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_study_sessions_start_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/tags/": {
         parameters: {
             query?: never;
@@ -481,12 +569,25 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /**
+         * @description * `reading` - Leitura
+         *     * `exercises` - Exercícios
+         *     * `review` - Revisão
+         *     * `class` - Aula
+         *     * `mock_exam` - Simulado
+         *     * `project` - Projeto
+         *     * `programming` - Programação
+         * @enum {string}
+         */
+        ActivityKindEnum: "reading" | "exercises" | "review" | "class" | "mock_exam" | "project" | "programming";
         Attempt: {
             /** Format: uuid */
             readonly id: string;
             /** Format: uuid */
             readonly exercise: string;
             readonly exercise_title: string;
+            /** Format: uuid */
+            study_session?: string | null;
             /** Format: uuid */
             readonly discipline: string;
             /** Format: date-time */
@@ -510,6 +611,8 @@ export interface components {
             exercise_state: string;
         };
         AttemptRequest: {
+            /** Format: uuid */
+            study_session?: string | null;
             /** Format: date-time */
             attempted_at?: string;
             result: components["schemas"]["ResultEnum"];
@@ -725,6 +828,21 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["ExerciseSource"][];
         };
+        PaginatedStudySessionList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["StudySession"][];
+        };
         PaginatedTagList: {
             /** @example 123 */
             count: number;
@@ -756,6 +874,8 @@ export interface components {
             results: components["schemas"]["Topic"][];
         };
         PatchedAttemptRequest: {
+            /** Format: uuid */
+            study_session?: string | null;
             /** Format: date-time */
             attempted_at?: string;
             result?: components["schemas"]["ResultEnum"];
@@ -800,6 +920,20 @@ export interface components {
         PatchedMeRequest: {
             profile?: components["schemas"]["UserProfileRequest"];
         };
+        PatchedStudySessionRequest: {
+            activity_kind?: components["schemas"]["ActivityKindEnum"];
+            /** Format: uuid */
+            discipline?: string | null;
+            /** Format: uuid */
+            topic?: string | null;
+            /** Format: date-time */
+            started_at?: string;
+            /** Format: date-time */
+            ended_at?: string;
+            focus_rating?: number | null;
+            energy_rating?: number | null;
+            notes?: string;
+        };
         PatchedTagRequest: {
             name?: string;
         };
@@ -830,6 +964,18 @@ export interface components {
          * @enum {string}
          */
         ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
+        SessionFinishRequest: {
+            focus_rating?: number | null;
+            energy_rating?: number | null;
+            notes?: string;
+        };
+        SessionStartRequest: {
+            /** Format: uuid */
+            discipline?: string | null;
+            /** Format: uuid */
+            topic?: string | null;
+            activity_kind: components["schemas"]["ActivityKindEnum"];
+        };
         /**
          * @description * `new` - Novo
          *     * `in_progress` - Em andamento
@@ -845,6 +991,45 @@ export interface components {
          * @enum {string}
          */
         StatusEnum: "not_started" | "in_progress" | "done";
+        StudySession: {
+            /** Format: uuid */
+            readonly id: string;
+            activity_kind: components["schemas"]["ActivityKindEnum"];
+            /** Format: uuid */
+            discipline?: string | null;
+            readonly discipline_name: string;
+            /** Format: uuid */
+            topic?: string | null;
+            readonly topic_title: string;
+            /** Format: date-time */
+            started_at: string;
+            /** Format: date-time */
+            ended_at: string;
+            readonly duration_seconds: number | null;
+            readonly elapsed_seconds: number;
+            focus_rating?: number | null;
+            energy_rating?: number | null;
+            notes?: string;
+            readonly is_manual: boolean;
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        StudySessionRequest: {
+            activity_kind: components["schemas"]["ActivityKindEnum"];
+            /** Format: uuid */
+            discipline?: string | null;
+            /** Format: uuid */
+            topic?: string | null;
+            /** Format: date-time */
+            started_at: string;
+            /** Format: date-time */
+            ended_at: string;
+            focus_rating?: number | null;
+            energy_rating?: number | null;
+            notes?: string;
+        };
         Tag: {
             /** Format: uuid */
             readonly id: string;
@@ -1867,6 +2052,220 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AttemptRecorded"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_list: {
+        parameters: {
+            query?: {
+                /**
+                 * @description * `reading` - Leitura
+                 *     * `exercises` - Exercícios
+                 *     * `review` - Revisão
+                 *     * `class` - Aula
+                 *     * `mock_exam` - Simulado
+                 *     * `project` - Projeto
+                 *     * `programming` - Programação
+                 */
+                activity_kind?: "class" | "exercises" | "mock_exam" | "programming" | "project" | "reading" | "review";
+                discipline?: string;
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /** @description Um termo de busca. */
+                search?: string;
+                started_after?: string;
+                started_before?: string;
+                topic?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedStudySessionList"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StudySessionRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["StudySessionRequest"];
+                "multipart/form-data": components["schemas"]["StudySessionRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este study session. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este study session. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_study_sessions_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este study session. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedStudySessionRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedStudySessionRequest"];
+                "multipart/form-data": components["schemas"]["PatchedStudySessionRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_active_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
+                };
+            };
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_study_sessions_active_finish_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["SessionFinishRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["SessionFinishRequest"];
+                "multipart/form-data": components["schemas"]["SessionFinishRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
+                };
+            };
+        };
+    };
+    api_v1_study_sessions_start_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SessionStartRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["SessionStartRequest"];
+                "multipart/form-data": components["schemas"]["SessionStartRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StudySession"];
                 };
             };
         };

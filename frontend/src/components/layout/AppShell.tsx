@@ -9,6 +9,7 @@ import { Navigation } from "@/components/layout/navigation";
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { useLogout, useMe } from "@/features/auth/queries";
+import { SessionTimer } from "@/features/sessions/components/SessionTimer";
 import { APP_NAME } from "@/lib/app";
 
 export function AppShell({ children }: { children: ReactNode }) {
@@ -89,6 +90,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <span className="min-w-0 flex-1 truncate text-sm text-muted">
             {user.profile.display_name || user.email}
           </span>
+          <SessionTimer />
           <ThemeToggle />
         </header>
         <main className="flex-1 p-4 lg:p-8">{children}</main>
