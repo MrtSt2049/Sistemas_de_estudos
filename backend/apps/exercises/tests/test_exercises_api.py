@@ -9,6 +9,7 @@ from apps.curriculum.models import Topic
 from apps.disciplines.models import Discipline
 from apps.exercises import services
 from apps.exercises.models import Attempt, ErrorType, Exercise, ExerciseSource
+from apps.studysessions.models import StudySession
 
 pytestmark = pytest.mark.django_db
 EXERCISES = "/api/v1/exercises/"
@@ -288,3 +289,19 @@ def test_foreign_relations_are_rejected_and_objects_invisible(
     assert auth_client.get(f"{EXERCISES}{their_exercise.pk}/attempts/").status_code == 404
     assert auth_client.delete(f"{SOURCES}{their_source.pk}/").status_code == 404
     assert auth_client.get(EXERCISES).json()["count"] == 1
+
+
+def test_attempt_can_be_linked_to_own_session_only(
+    auth_client: APIClient, exercise: Exercise, user: User, other_user: User
+) -> None:
+    started = "2026-11-20T10:00:00Z"
+    mine = StudySession.objects.create(owner=user, activity_kind="class", started_at=started)
+    theirs = StudySession.objects.create(
+        owner=other_user, activity_kind="class", started_at=started
+    )
+
+    ok = record(auth_client, exercise, result="partial", study_session=str(mine.pk))
+    bad = record(auth_client, exercise, result="partial", study_session=str(theirs.pk))
+
+    assert ok.status_code == 201
+    assert bad.status_code == 400

@@ -7,6 +7,7 @@ from apps.core.models import Tag
 from apps.curriculum.models import Topic
 from apps.disciplines.models import Discipline
 from apps.exercises.models import Attempt, ErrorType, Exercise, ExerciseSource
+from apps.studysessions.models import StudySession
 
 
 class ExerciseSourceSerializer(serializers.ModelSerializer[ExerciseSource]):
@@ -73,6 +74,9 @@ class AttemptSerializer(serializers.ModelSerializer[Attempt]):
     dominant_error = OwnedPrimaryKeyRelatedField(
         queryset=ErrorType.objects.all(), required=False, allow_null=True
     )
+    study_session = OwnedPrimaryKeyRelatedField(
+        queryset=StudySession.objects.all(), required=False, allow_null=True
+    )
     hint_level = serializers.IntegerField(min_value=0, max_value=3, required=False)
     duration_seconds = serializers.IntegerField(min_value=0, required=False, allow_null=True)
     exercise_title = serializers.CharField(source="exercise.title", read_only=True)
@@ -87,6 +91,7 @@ class AttemptSerializer(serializers.ModelSerializer[Attempt]):
             "id",
             "exercise",
             "exercise_title",
+            "study_session",
             "discipline",
             "attempted_at",
             "result",

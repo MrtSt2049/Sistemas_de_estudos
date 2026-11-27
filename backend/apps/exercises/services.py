@@ -38,6 +38,7 @@ _EXERCISE_FIELDS = (
     "url",
 )
 _ATTEMPT_FIELDS = (
+    "study_session",
     "attempted_at",
     "result",
     "duration_seconds",

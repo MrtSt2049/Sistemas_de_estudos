@@ -11,6 +11,7 @@ from apps.core import clock
 from apps.core.models import OwnedModel, Tag
 from apps.curriculum.models import Topic
 from apps.disciplines.models import Discipline
+from apps.studysessions.models import StudySession
 
 
 class SourceKind(models.TextChoices):
@@ -115,6 +116,9 @@ class Exercise(OwnedModel):
 
 class Attempt(OwnedModel):
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE, related_name="attempts")
+    study_session = models.ForeignKey(
+        StudySession, on_delete=models.SET_NULL, null=True, blank=True, related_name="attempts"
+    )
     attempted_at = models.DateTimeField(default=clock.now)
     result = models.CharField(max_length=20, choices=AttemptResult.choices)
     duration_seconds = models.PositiveIntegerField(null=True, blank=True)

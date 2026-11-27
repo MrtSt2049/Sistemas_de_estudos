@@ -4,10 +4,12 @@ Every structural write locks the discipline row, so concurrent moves cannot
 create a cycle or duplicate sibling positions.
 """
 
+from datetime import datetime
 from typing import Any
 from uuid import UUID
 
 from django.db import transaction
+from django.db.models import Q
 
 from apps.accounts.models import User
 from apps.core.exceptions import RuleViolationError
@@ -107,6 +109,13 @@ def update_topic(*, topic: Topic, data: dict[str, Any]) -> Topic:
         setattr(topic, field, data[field])
     topic.save(update_fields=[*changed, "updated_at"])
     return topic
+
+
+def mark_studied(*, topic: Topic, at: datetime) -> None:
+    """Keep the most recent study instant (derived field owned by this app)."""
+    Topic.objects.filter(pk=topic.pk).filter(
+        Q(last_studied_at__isnull=True) | Q(last_studied_at__lt=at)
+    ).update(last_studied_at=at)
 
 
 @transaction.atomic
