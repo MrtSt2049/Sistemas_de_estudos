@@ -1,7 +1,7 @@
 # Plano de Implantação — Study Platform
 
-> **Referência oficial:** [`DEVELOPMENT_PLAN.md`](../DEVELOPMENT_PLAN.md) · [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) · [`docs/ROADMAP.md`](ROADMAP.md) · [`AGENTS.md`](../AGENTS.md)
-> **Versão:** 0.1 — 26/11/2026 (Aprovado para execução da Fase 0).
+> **Referência oficial:** [`DEVELOPMENT_PLAN.md`](../DEVELOPMENT_PLAN.md) · [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) · [`docs/ROADMAP.md`](ROADMAP.md) · [`docs/RUNBOOK.md`](RUNBOOK.md) · [`AGENTS.md`](../AGENTS.md)
+> **Versão:** 0.2 — 27/11/2026 (F0–F5 implementados na branch de trabalho; portões operacionais e de produto listados abaixo).
 
 ---
 
@@ -27,10 +27,12 @@ Este documento consolida a estratégia prática de implantação da **Study Plat
 | `D-11` | **Decidida (F0)** | Gerenciamento de dependências Python via `pip` + `requirements/{base,dev,prod}.txt`. |
 | `D-13` | **Decidida (F0)** | Python 3.13, Django 5.2 LTS, Node 22/24 LTS e Next.js estável vigente. |
 | `D-14` | **Resolvida (23/11/2026)** | Protótipo legado preservado apenas como referência em `docs/legacy-prototype/`. |
-| `D-04`, `D-05` | Pendente (antes da F2) | Algoritmo de revisão espaçada e regra de exercício `mastered`. |
-| `D-06`, `D-10` | Pendente (antes da F3) | Regras oficiais de aprovação da faculdade e exceções de recorrência de calendário. |
-| `D-02` | Pendente (antes da F4) | Provedor de armazenamento de arquivos da biblioteca (interface isolada no backend). |
-| `D-07`, `D-12` | Pendente (antes da F5) | Hospedagem de produção sob mesmo domínio registrável, plano Supabase e serviço de e-mail. |
+| `ADR-015` | **Aceita (27/11/2026)** | Integração somente leitura e sob demanda com a API pública do Codeforces (sem credenciais, sem filas). |
+| `D-04`, `D-05` | Pendente (formalizar antes de fechar F2) | Algoritmo de revisão espaçada (escada inicial D+3, D+7, D+21 implementada) e regra de exercício `mastered`. |
+| **Fonte Única** | Pendente (formalizar antes de fechar F4) | Definir explicitamente `Plano/` ou Obsidian Vault como fonte única do planejamento e congelar o espelho divergente. |
+| `D-06`, `D-10` | Pendente (antes de módulos acadêmicos/recorrência) | Regras oficiais de aprovação da faculdade e exceções de recorrência de calendário. |
+| `D-02` | Pendente (antes da biblioteca de arquivos) | Provedor de armazenamento de arquivos da biblioteca (interface isolada no backend). |
+| `D-07`, `D-12` | Pendente (antes do Go-Live F5) | Hospedagem de produção sob mesmo domínio registrável (ou proxy reverso via `API_PROXY_TARGET`), plano Supabase e serviço de e-mail. |
 
 ---
 
