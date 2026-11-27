@@ -35,6 +35,9 @@ services:
       POSTGRES_DB: ${LOCAL_DB_NAME:-study_platform}
       POSTGRES_USER: ${LOCAL_DB_USER:-study_platform}
       POSTGRES_PASSWORD: ${LOCAL_DB_PASSWORD:-study_platform}
+    # Exposto em localhost para pytest/manage.py executados fora do container
+    # (mesma URL padrão de config/settings/test.py e do serviço do CI).
+    ports: ["127.0.0.1:5432:5432"]
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:

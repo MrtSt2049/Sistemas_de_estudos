@@ -5,7 +5,7 @@ import os
 os.environ.setdefault("DJANGO_SECRET_KEY", "test-only-insecure-secret-key-not-for-prod-123456")
 os.environ.setdefault(
     "DATABASE_URL",
-    "postgresql://study_platform:study_platform@localhost:5432/study_platform_test",
+    "postgresql://study_platform:study_platform@127.0.0.1:5432/study_platform_test",
 )
 
 from .base import *  # noqa: E402, F403

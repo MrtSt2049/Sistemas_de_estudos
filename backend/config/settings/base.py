@@ -82,6 +82,10 @@ DATABASES = {
     "default": env.db("DATABASE_URL"),
 }
 DATABASES["default"]["CONN_MAX_AGE"] = env.int("DB_CONN_MAX_AGE", default=60)
+# Falha rápida quando o banco está inacessível (evita travar testes e /readyz).
+DATABASES["default"].setdefault("OPTIONS", {})["connect_timeout"] = env.int(
+    "DB_CONNECT_TIMEOUT", default=10
+)
 
 AUTH_USER_MODEL = "accounts.User"
 
