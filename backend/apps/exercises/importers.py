@@ -1,6 +1,5 @@
 """Idempotent import of the OBMU exam bank CSV (issue #9)."""
 
-import csv
 from dataclasses import dataclass
 from decimal import Decimal, InvalidOperation
 from pathlib import Path
@@ -8,6 +7,7 @@ from pathlib import Path
 from django.db import transaction
 
 from apps.accounts.models import User
+from apps.core.csv_import import read_csv_rows
 from apps.disciplines.models import Discipline, DisciplineKind
 from apps.disciplines.services import create_discipline
 from apps.exercises import services
@@ -17,10 +17,6 @@ REQUIRED_COLUMNS = ("Ano", "Formato", "Uso planejado", "Status", "Nota (/300)", 
 IMPORT_NAME = "OBMU"
 # Everything from this heading on belongs to the importer; text above it is the user's.
 BLOCK_HEADING = "### Dados do banco de provas"
-
-
-class ImportFileError(Exception):
-    """The file cannot be imported; the message lists every problem found."""
 
 
 @dataclass(frozen=True)
@@ -69,8 +65,7 @@ def _parse_score(raw: str) -> Decimal | None:
     return score
 
 
-def _parse_row(row: dict[str, str | None]) -> ExamRow:
-    values = {column: (row.get(column) or "").strip() for column in REQUIRED_COLUMNS}
+def _parse_row(values: dict[str, str]) -> ExamRow:
     if not values["Ano"].isdigit() or not 1900 <= int(values["Ano"]) <= 2100:
         raise ValueError(f"ano inválido: '{values['Ano']}'")
     if not values["Formato"]:
@@ -86,34 +81,13 @@ def _parse_row(row: dict[str, str | None]) -> ExamRow:
 
 
 def parse_exam_csv(path: Path) -> list[ExamRow]:
-    if not path.is_file():
-        raise ImportFileError(f"Arquivo não encontrado: {path}")
-    try:
-        with path.open(encoding="utf-8-sig", newline="") as handle:
-            reader = csv.DictReader(handle)
-            missing = [c for c in REQUIRED_COLUMNS if c not in (reader.fieldnames or [])]
-            if missing:
-                raise ImportFileError(f"Colunas ausentes: {', '.join(missing)}")
-            rows: list[ExamRow] = []
-            errors: list[str] = []
-            years: set[int] = set()
-            for line, raw in enumerate(reader, start=2):
-                try:
-                    parsed = _parse_row(raw)
-                    if parsed.year in years:
-                        raise ValueError(f"ano repetido: {parsed.year}")
-                except ValueError as exc:
-                    errors.append(f"Linha {line}: {exc}")
-                    continue
-                years.add(parsed.year)
-                rows.append(parsed)
-    except UnicodeDecodeError as exc:
-        raise ImportFileError("O arquivo precisa estar codificado em UTF-8.") from exc
-    if errors:
-        raise ImportFileError("Nada foi importado.\n" + "\n".join(errors))
-    if not rows:
-        raise ImportFileError("O arquivo não tem linhas de dados.")
-    return rows
+    return read_csv_rows(
+        path,
+        required=REQUIRED_COLUMNS,
+        parse=_parse_row,
+        unique_key=lambda row: row.year,
+        key_label="ano",
+    )
 
 
 def _merge_block(current: str, block: str) -> str:

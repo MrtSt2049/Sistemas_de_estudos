@@ -5,8 +5,9 @@ from typing import Any
 from django.core.management.base import BaseCommand, CommandError
 
 from apps.accounts.models import User
+from apps.core.csv_import import ImportFileError
 from apps.core.exceptions import DomainError
-from apps.exercises.importers import ImportFileError, import_obmu_exams, parse_exam_csv
+from apps.exercises.importers import import_obmu_exams, parse_exam_csv
 
 
 class Command(BaseCommand):

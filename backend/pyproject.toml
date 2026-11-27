@@ -49,12 +49,14 @@ root_packages = ["apps", "config"]
 name = "Core must not depend on domain apps"
 type = "forbidden"
 source_modules = ["apps.core"]
-forbidden_modules = ["apps.cp", "apps.reviews", "apps.studysessions", "apps.exercises", "apps.accounts", "apps.disciplines", "apps.curriculum"]
+forbidden_modules = ["apps.planning", "apps.goals", "apps.cp", "apps.reviews", "apps.studysessions", "apps.exercises", "apps.accounts", "apps.disciplines", "apps.curriculum"]
 
 [[tool.importlinter.contracts]]
 name = "Layered unidirectional app hierarchy"
 type = "layers"
 layers = [
+    "apps.planning",
+    "apps.goals",
     "apps.cp",
     "apps.reviews",
     "apps.exercises",

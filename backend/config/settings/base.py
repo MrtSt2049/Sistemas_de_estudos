@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django_filters",
     "drf_spectacular",
     # Local apps
+    "apps.planning",
+    "apps.goals",
     "apps.cp",
     "apps.reviews",
     "apps.studysessions",
@@ -181,6 +183,9 @@ SPECTACULAR_SETTINGS = {
         "TopicStatusEnum": "apps.curriculum.models.TopicStatus.choices",
         "ReviewItemStatusEnum": "apps.reviews.models.ReviewStatus.choices",
         "ReviewRatingEnum": "apps.reviews.models.ReviewRating.choices",
+        "ReviewPeriodKindEnum": "apps.goals.models.ReviewPeriodKind.choices",
+        "CalendarEventKindEnum": "apps.planning.models.EventKind.choices",
+        "GoalStatusEnum": "apps.goals.models.GoalStatus.choices",
     },
 }
 
