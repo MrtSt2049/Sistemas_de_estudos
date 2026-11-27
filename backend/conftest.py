@@ -1,9 +1,16 @@
 """Global pytest fixtures and factories for Study Platform backend."""
 
 import pytest
+from django.core.cache import cache
 from rest_framework.test import APIClient
 
 from apps.accounts.models import User, UserProfile
+
+
+@pytest.fixture(autouse=True)
+def _isolated_throttle_cache() -> None:
+    """Rate-limit counters live in the cache and must not leak between tests."""
+    cache.clear()
 
 
 @pytest.fixture

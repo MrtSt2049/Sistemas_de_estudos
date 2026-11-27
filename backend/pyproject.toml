@@ -23,7 +23,7 @@ check_untyped_defs = true
 exclude = ["migrations/"]
 
 [[tool.mypy.overrides]]
-module = ["environ", "environ.*"]
+module = ["environ", "environ.*", "django_filters", "django_filters.*"]
 ignore_missing_imports = true
 
 [tool.django-stubs]
@@ -49,12 +49,14 @@ root_packages = ["apps", "config"]
 name = "Core must not depend on domain apps"
 type = "forbidden"
 source_modules = ["apps.core"]
-forbidden_modules = ["apps.accounts"]
+forbidden_modules = ["apps.accounts", "apps.disciplines", "apps.curriculum"]
 
 [[tool.importlinter.contracts]]
-name = "Layered unidirectional app hierarchy (F0)"
+name = "Layered unidirectional app hierarchy"
 type = "layers"
 layers = [
+    "apps.curriculum",
+    "apps.disciplines",
     "apps.accounts",
     "apps.core",
 ]

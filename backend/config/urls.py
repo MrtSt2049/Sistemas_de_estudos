@@ -13,6 +13,8 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/auth/", include("apps.accounts.urls")),
     path("api/v1/", include("apps.core.urls")),
+    path("api/v1/", include("apps.disciplines.urls")),
+    path("api/v1/", include("apps.curriculum.urls")),
 ]
 
 if getattr(settings, "ENABLE_API_DOCS", False):
