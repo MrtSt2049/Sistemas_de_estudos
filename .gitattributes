@@ -1,0 +1,2 @@
+# Scripts precisam de LF mesmo com core.autocrlf no Windows.
+*.sh text eol=lf
