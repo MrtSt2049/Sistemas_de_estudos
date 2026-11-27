@@ -152,6 +152,22 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/v1/calendar/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["api_v1_calendar_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   "/api/v1/cp/summary/": {
     parameters: {
       query?: never;
@@ -341,6 +357,43 @@ export interface paths {
     patch: operations["api_v1_error_types_partial_update"];
     trace?: never;
   };
+  "/api/v1/events/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_events_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_events_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/events/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_events_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_events_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_events_partial_update"];
+    trace?: never;
+  };
   "/api/v1/exercise-sources/": {
     parameters: {
       query?: never;
@@ -427,6 +480,93 @@ export interface paths {
     put?: never;
     /** @description Filter queryset by authenticated user and inject owner on creation. */
     post: operations["api_v1_exercises_attempts_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/goals/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_goals_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_goals_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/goals/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_goals_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_goals_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_goals_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/periodic-reviews/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_periodic_reviews_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/periodic-reviews/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_periodic_reviews_destroy"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/periodic-reviews/draft/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get: operations["api_v1_periodic_reviews_draft_retrieve"];
+    put?: never;
+    post: operations["api_v1_periodic_reviews_draft_create"];
     delete?: never;
     options?: never;
     head?: never;
@@ -715,6 +855,114 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  "/api/v1/week-blocks/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_week_blocks_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_week_blocks_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/week-blocks/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_week_blocks_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_week_blocks_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_week_blocks_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/week-profiles/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_week_profiles_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_week_profiles_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/week-profiles/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_week_profiles_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_week_profiles_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_week_profiles_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/week-profiles/{id}/activate/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_week_profiles_activate_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/week-profiles/{id}/apply/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_week_profiles_apply_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -731,6 +979,13 @@ export interface components {
      */
     ActivityKindEnum:
       "reading" | "exercises" | "review" | "class" | "mock_exam" | "project" | "programming";
+    ApplyProfileRequest: {
+      /** Format: date */
+      week_start: string;
+    };
+    ApplyResult: {
+      created: number;
+    };
     Attempt: {
       /** Format: uuid */
       readonly id: string;
@@ -774,6 +1029,74 @@ export interface components {
       key_technique?: string;
       rewritten?: boolean;
       notes_md?: string;
+    };
+    CalendarEvent: {
+      /** Format: uuid */
+      readonly id: string;
+      title: string;
+      kind: components["schemas"]["CalendarEventKindEnum"];
+      /** Format: date-time */
+      starts_at: string;
+      /** Format: date-time */
+      ends_at: string;
+      all_day?: boolean;
+      description?: string;
+      location?: string;
+      /** Format: uuid */
+      discipline?: string | null;
+      recurrence_interval_weeks?: number | null;
+      /** Format: date */
+      recurrence_until?: string | null;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    /**
+     * @description * `class` - Aula
+     *     * `exam` - Prova
+     *     * `study` - Estudo
+     *     * `competition` - Competição
+     *     * `deadline` - Entrega
+     *     * `workout` - Treino físico
+     *     * `personal` - Pessoal
+     * @enum {string}
+     */
+    CalendarEventKindEnum:
+      "class" | "exam" | "study" | "competition" | "deadline" | "workout" | "personal";
+    CalendarEventRequest: {
+      title: string;
+      kind: components["schemas"]["CalendarEventKindEnum"];
+      /** Format: date-time */
+      starts_at: string;
+      /** Format: date-time */
+      ends_at: string;
+      all_day?: boolean;
+      description?: string;
+      location?: string;
+      /** Format: uuid */
+      discipline?: string | null;
+      recurrence_interval_weeks?: number | null;
+      /** Format: date */
+      recurrence_until?: string | null;
+    };
+    CalendarItem: {
+      source: components["schemas"]["SourceEnum"];
+      /** Format: uuid */
+      event: string | null;
+      /** Format: uuid */
+      goal: string | null;
+      title: string;
+      kind: string;
+      /** Format: date-time */
+      starts_at: string;
+      /** Format: date-time */
+      ends_at: string;
+      all_day: boolean;
+      description: string;
+      discipline_name: string | null;
+      discipline_color: string;
+      recurring: boolean;
     };
     ChangePasswordRequest: {
       current_password: string;
@@ -905,6 +1228,49 @@ export interface components {
       name: string;
       kind?: components["schemas"]["ExerciseSourceKindEnum"];
     };
+    Goal: {
+      /** Format: uuid */
+      readonly id: string;
+      title: string;
+      description?: string;
+      scope: components["schemas"]["ScopeEnum"];
+      /** Format: date */
+      period_start: string;
+      /** Format: date */
+      period_end: string;
+      metric: components["schemas"]["MetricEnum"];
+      target_value: number;
+      readonly current_value: number;
+      /** Format: uuid */
+      discipline?: string | null;
+      readonly discipline_name: string;
+      status?: components["schemas"]["GoalStatusEnum"];
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    GoalRequest: {
+      title: string;
+      description?: string;
+      scope: components["schemas"]["ScopeEnum"];
+      /** Format: date */
+      period_start: string;
+      /** Format: date */
+      period_end: string;
+      metric: components["schemas"]["MetricEnum"];
+      target_value: number;
+      /** Format: uuid */
+      discipline?: string | null;
+      status?: components["schemas"]["GoalStatusEnum"];
+    };
+    /**
+     * @description * `active` - Ativa
+     *     * `done` - Concluída
+     *     * `abandoned` - Abandonada
+     * @enum {string}
+     */
+    GoalStatusEnum: "active" | "done" | "abandoned";
     ImportedExercise: {
       /** Format: uuid */
       exercise: string;
@@ -923,6 +1289,22 @@ export interface components {
       readonly date_joined: string;
       profile: components["schemas"]["UserProfile"];
     };
+    /**
+     * @description * `study_minutes` - Minutos de estudo
+     *     * `sessions_count` - Sessões de estudo
+     *     * `exercises_attempted` - Exercícios tentados
+     *     * `exercises_solved` - Exercícios resolvidos sozinho
+     *     * `reviews_done` - Revisões feitas
+     *     * `cp_contests` - Contests com rating
+     * @enum {string}
+     */
+    MetricEnum:
+      | "study_minutes"
+      | "sessions_count"
+      | "exercises_attempted"
+      | "exercises_solved"
+      | "reviews_done"
+      | "cp_contests";
     PaginatedAttemptList: {
       /** @example 123 */
       count: number;
@@ -937,6 +1319,21 @@ export interface components {
        */
       previous?: string | null;
       results: components["schemas"]["Attempt"][];
+    };
+    PaginatedCalendarEventList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["CalendarEvent"][];
     };
     PaginatedDisciplineList: {
       /** @example 123 */
@@ -998,6 +1395,36 @@ export interface components {
       previous?: string | null;
       results: components["schemas"]["ExerciseSource"][];
     };
+    PaginatedGoalList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Goal"][];
+    };
+    PaginatedPeriodicReviewList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["PeriodicReview"][];
+    };
     PaginatedReviewItemList: {
       /** @example 123 */
       count: number;
@@ -1058,6 +1485,36 @@ export interface components {
       previous?: string | null;
       results: components["schemas"]["Topic"][];
     };
+    PaginatedWeeklyPlanBlockList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["WeeklyPlanBlock"][];
+    };
+    PaginatedWeeklyPlanProfileList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["WeeklyPlanProfile"][];
+    };
     PatchedAttemptRequest: {
       /** Format: uuid */
       study_session?: string | null;
@@ -1071,6 +1528,22 @@ export interface components {
       key_technique?: string;
       rewritten?: boolean;
       notes_md?: string;
+    };
+    PatchedCalendarEventRequest: {
+      title?: string;
+      kind?: components["schemas"]["CalendarEventKindEnum"];
+      /** Format: date-time */
+      starts_at?: string;
+      /** Format: date-time */
+      ends_at?: string;
+      all_day?: boolean;
+      description?: string;
+      location?: string;
+      /** Format: uuid */
+      discipline?: string | null;
+      recurrence_interval_weeks?: number | null;
+      /** Format: date */
+      recurrence_until?: string | null;
     };
     PatchedDisciplineRequest: {
       name?: string;
@@ -1102,6 +1575,20 @@ export interface components {
       name?: string;
       kind?: components["schemas"]["ExerciseSourceKindEnum"];
     };
+    PatchedGoalRequest: {
+      title?: string;
+      description?: string;
+      scope?: components["schemas"]["ScopeEnum"];
+      /** Format: date */
+      period_start?: string;
+      /** Format: date */
+      period_end?: string;
+      metric?: components["schemas"]["MetricEnum"];
+      target_value?: number;
+      /** Format: uuid */
+      discipline?: string | null;
+      status?: components["schemas"]["GoalStatusEnum"];
+    };
     PatchedMeRequest: {
       profile?: components["schemas"]["UserProfileRequest"];
     };
@@ -1130,6 +1617,44 @@ export interface components {
       title?: string;
       description?: string;
       status?: components["schemas"]["TopicStatusEnum"];
+    };
+    PatchedWeeklyPlanBlockRequest: {
+      /** Format: uuid */
+      profile?: string;
+      weekday?: number;
+      /** Format: time */
+      start_time?: string;
+      /** Format: time */
+      end_time?: string;
+      label?: string;
+      activity_kind?: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+    };
+    PatchedWeeklyPlanProfileRequest: {
+      name?: string;
+    };
+    PeriodNumbers: {
+      study_minutes: number;
+      sessions_count: number;
+      exercises_attempted: number;
+      exercises_solved: number;
+      reviews_done: number;
+      cp_contests: number;
+    };
+    PeriodicReview: {
+      /** Format: uuid */
+      readonly id: string;
+      readonly kind: components["schemas"]["ReviewPeriodKindEnum"];
+      /** Format: date */
+      readonly period_start: string;
+      /** Format: date */
+      readonly period_end: string;
+      planned_text?: string;
+      completed_text?: string;
+      evidence_text?: string;
+      obstacles_text?: string;
+      adjustments_text?: string;
     };
     RatingBucket: {
       rating: number;
@@ -1167,6 +1692,16 @@ export interface components {
       /** Format: uuid */
       idempotency_key: string;
     };
+    ReviewDraft: {
+      kind: components["schemas"]["ReviewPeriodKindEnum"];
+      /** Format: date */
+      period_start: string;
+      /** Format: date */
+      period_end: string;
+      numbers: components["schemas"]["PeriodNumbers"];
+      goals: components["schemas"]["Goal"][];
+      review: components["schemas"]["PeriodicReview"] | null;
+    };
     ReviewItem: {
       /** Format: uuid */
       readonly id: string;
@@ -1199,6 +1734,12 @@ export interface components {
       /** Format: date */
       due_on: string;
     };
+    /**
+     * @description * `weekly` - Semanal
+     *     * `monthly` - Mensal
+     * @enum {string}
+     */
+    ReviewPeriodKindEnum: "weekly" | "monthly";
     ReviewQueue: {
       /** Format: date */
       today: string;
@@ -1213,12 +1754,31 @@ export interface components {
      * @enum {string}
      */
     ReviewRatingEnum: "again" | "hard" | "good" | "easy";
+    ReviewSaveRequest: {
+      kind: components["schemas"]["ReviewPeriodKindEnum"];
+      /** Format: date */
+      date: string;
+      planned_text?: string;
+      completed_text?: string;
+      evidence_text?: string;
+      obstacles_text?: string;
+      adjustments_text?: string;
+    };
     ReviewScheduleRequest: {
       /** Format: uuid */
       exercise?: string;
       /** Format: uuid */
       topic?: string;
     };
+    /**
+     * @description * `weekly` - Semanal
+     *     * `monthly` - Mensal
+     *     * `semester` - Semestral
+     *     * `yearly` - Anual
+     *     * `custom` - Período livre
+     * @enum {string}
+     */
+    ScopeEnum: "weekly" | "monthly" | "semester" | "yearly" | "custom";
     SessionFinishRequest: {
       focus_rating?: number | null;
       energy_rating?: number | null;
@@ -1231,6 +1791,12 @@ export interface components {
       topic?: string | null;
       activity_kind: components["schemas"]["ActivityKindEnum"];
     };
+    /**
+     * @description * `event` - event
+     *     * `goal` - goal
+     * @enum {string}
+     */
+    SourceEnum: "event" | "goal";
     /**
      * @description * `new` - Novo
      *     * `in_progress` - Em andamento
@@ -1403,6 +1969,44 @@ export interface components {
       daily_study_goal_minutes?: number;
       week_starts_on?: number;
       review_intervals_days?: unknown;
+    };
+    WeeklyPlanBlock: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: uuid */
+      profile: string;
+      weekday: number;
+      /** Format: time */
+      start_time: string;
+      /** Format: time */
+      end_time: string;
+      label: string;
+      activity_kind: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+    };
+    WeeklyPlanBlockRequest: {
+      /** Format: uuid */
+      profile: string;
+      weekday: number;
+      /** Format: time */
+      start_time: string;
+      /** Format: time */
+      end_time: string;
+      label: string;
+      activity_kind: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+    };
+    WeeklyPlanProfile: {
+      /** Format: uuid */
+      readonly id: string;
+      name: string;
+      readonly is_active: boolean;
+      readonly blocks: components["schemas"]["WeeklyPlanBlock"][];
+    };
+    WeeklyPlanProfileRequest: {
+      name: string;
     };
   };
   responses: never;
@@ -1698,6 +2302,28 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["Me"];
+        };
+      };
+    };
+  };
+  api_v1_calendar_list: {
+    parameters: {
+      query: {
+        end: string;
+        start: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CalendarItem"][];
         };
       };
     };
@@ -2129,6 +2755,141 @@ export interface operations {
       };
     };
   };
+  api_v1_events_list: {
+    parameters: {
+      query?: {
+        discipline?: string;
+        /**
+         * @description * `class` - Aula
+         *     * `exam` - Prova
+         *     * `study` - Estudo
+         *     * `competition` - Competição
+         *     * `deadline` - Entrega
+         *     * `workout` - Treino físico
+         *     * `personal` - Pessoal
+         */
+        kind?: "class" | "competition" | "deadline" | "exam" | "personal" | "study" | "workout";
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedCalendarEventList"];
+        };
+      };
+    };
+  };
+  api_v1_events_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["CalendarEventRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["CalendarEventRequest"];
+        "multipart/form-data": components["schemas"]["CalendarEventRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CalendarEvent"];
+        };
+      };
+    };
+  };
+  api_v1_events_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este calendar event. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CalendarEvent"];
+        };
+      };
+    };
+  };
+  api_v1_events_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este calendar event. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_events_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este calendar event. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedCalendarEventRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedCalendarEventRequest"];
+        "multipart/form-data": components["schemas"]["PatchedCalendarEventRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CalendarEvent"];
+        };
+      };
+    };
+  };
   api_v1_exercise_sources_list: {
     parameters: {
       query?: {
@@ -2448,6 +3209,251 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["AttemptRecorded"];
+        };
+      };
+    };
+  };
+  api_v1_goals_list: {
+    parameters: {
+      query?: {
+        active_on?: unknown;
+        discipline?: string;
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /**
+         * @description * `weekly` - Semanal
+         *     * `monthly` - Mensal
+         *     * `semester` - Semestral
+         *     * `yearly` - Anual
+         *     * `custom` - Período livre
+         */
+        scope?: "custom" | "monthly" | "semester" | "weekly" | "yearly";
+        /** @description Um termo de busca. */
+        search?: string;
+        /**
+         * @description * `active` - Ativa
+         *     * `done` - Concluída
+         *     * `abandoned` - Abandonada
+         */
+        status?: "abandoned" | "active" | "done";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedGoalList"];
+        };
+      };
+    };
+  };
+  api_v1_goals_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["GoalRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["GoalRequest"];
+        "multipart/form-data": components["schemas"]["GoalRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Goal"];
+        };
+      };
+    };
+  };
+  api_v1_goals_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este goal. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Goal"];
+        };
+      };
+    };
+  };
+  api_v1_goals_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este goal. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_goals_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este goal. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedGoalRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedGoalRequest"];
+        "multipart/form-data": components["schemas"]["PatchedGoalRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Goal"];
+        };
+      };
+    };
+  };
+  api_v1_periodic_reviews_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description * `weekly` - Semanal
+         *     * `monthly` - Mensal
+         */
+        kind?: "monthly" | "weekly";
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedPeriodicReviewList"];
+        };
+      };
+    };
+  };
+  api_v1_periodic_reviews_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este periodic review. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_periodic_reviews_draft_retrieve: {
+    parameters: {
+      query?: {
+        date?: string;
+        /**
+         * @description * `weekly` - Semanal
+         *     * `monthly` - Mensal
+         */
+        kind?: "weekly" | "monthly";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewDraft"];
+        };
+      };
+    };
+  };
+  api_v1_periodic_reviews_draft_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ReviewSaveRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ReviewSaveRequest"];
+        "multipart/form-data": components["schemas"]["ReviewSaveRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PeriodicReview"];
         };
       };
     };
@@ -3121,6 +4127,305 @@ export interface operations {
         };
         content: {
           "application/json": components["schemas"]["TopicNode"][];
+        };
+      };
+    };
+  };
+  api_v1_week_blocks_list: {
+    parameters: {
+      query?: {
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        profile?: string;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedWeeklyPlanBlockList"];
+        };
+      };
+    };
+  };
+  api_v1_week_blocks_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["WeeklyPlanBlockRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["WeeklyPlanBlockRequest"];
+        "multipart/form-data": components["schemas"]["WeeklyPlanBlockRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanBlock"];
+        };
+      };
+    };
+  };
+  api_v1_week_blocks_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan block. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanBlock"];
+        };
+      };
+    };
+  };
+  api_v1_week_blocks_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan block. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_week_blocks_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan block. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedWeeklyPlanBlockRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedWeeklyPlanBlockRequest"];
+        "multipart/form-data": components["schemas"]["PatchedWeeklyPlanBlockRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanBlock"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_list: {
+    parameters: {
+      query?: {
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedWeeklyPlanProfileList"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["WeeklyPlanProfileRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["WeeklyPlanProfileRequest"];
+        "multipart/form-data": components["schemas"]["WeeklyPlanProfileRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanProfile"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan profile. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanProfile"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan profile. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_week_profiles_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan profile. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedWeeklyPlanProfileRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedWeeklyPlanProfileRequest"];
+        "multipart/form-data": components["schemas"]["PatchedWeeklyPlanProfileRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanProfile"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_activate_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan profile. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["WeeklyPlanProfile"];
+        };
+      };
+    };
+  };
+  api_v1_week_profiles_apply_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este weekly plan profile. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ApplyProfileRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ApplyProfileRequest"];
+        "multipart/form-data": components["schemas"]["ApplyProfileRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ApplyResult"];
         };
       };
     };

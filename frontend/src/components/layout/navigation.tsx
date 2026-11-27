@@ -2,12 +2,14 @@
 
 import {
   BookOpen,
+  Calendar,
   Code2,
   LayoutDashboard,
   ListChecks,
   NotebookPen,
   Repeat,
   Timer,
+  Target,
   type LucideIcon,
 } from "lucide-react";
 import Link from "next/link";
@@ -38,6 +40,14 @@ export const NAV_GROUPS: { title: string; items: NavItem[] }[] = [
       { href: "/errors", label: "Caderno de erros", icon: NotebookPen },
       { href: "/competitive", label: "Programação competitiva", icon: Code2 },
     ],
+  },
+  {
+    title: "Acompanhamento",
+    items: [{ href: "/goals", label: "Metas e revisões", icon: Target }],
+  },
+  {
+    title: "Organização",
+    items: [{ href: "/calendar", label: "Calendário", icon: Calendar }],
   },
 ];
 
