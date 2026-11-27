@@ -187,3 +187,47 @@ def test_isolation(auth_client: APIClient, other_user: User, fake_clock: FakeClo
     assert auth_client.get(f"{URL}{foreign.pk}/").status_code == 404
     assert auth_client.delete(f"{URL}{foreign.pk}/").status_code == 404
     assert auth_client.post(f"{URL}active/finish/", {}, format="json").status_code == 404
+
+
+def test_edit_finished_session_revalidates_times(
+    auth_client: APIClient, fake_clock: FakeClock
+) -> None:
+    first = manual(auth_client, "2026-11-26T10:00:00Z", "2026-11-26T11:00:00Z").json()
+    manual(auth_client, "2026-11-26T12:00:00Z", "2026-11-26T13:00:00Z")
+    url = f"{URL}{first['id']}/"
+
+    longer = auth_client.patch(url, {"ended_at": "2026-11-26T11:30:00Z"}, format="json")
+    overlap = auth_client.patch(url, {"ended_at": "2026-11-26T12:30:00Z"}, format="json")
+    inverted = auth_client.patch(url, {"ended_at": "2026-11-26T09:00:00Z"}, format="json")
+    notes = auth_client.patch(url, {"notes": "revisado", "focus_rating": 5}, format="json")
+
+    assert longer.status_code == 200
+    assert longer.json()["duration_seconds"] == 5400
+    assert overlap.status_code == 409
+    assert inverted.status_code == 400
+    assert notes.json()["notes"] == "revisado"
+
+
+def test_running_session_times_cannot_be_edited(
+    auth_client: APIClient, fake_clock: FakeClock, topic: Topic
+) -> None:
+    session_id = start(auth_client).json()["id"]
+    url = f"{URL}{session_id}/"
+
+    times = auth_client.patch(url, {"ended_at": "2026-11-27T14:00:00Z"}, format="json")
+    content = auth_client.patch(url, {"topic": str(topic.pk)}, format="json")
+
+    assert times.status_code == 409
+    assert times.json()["error"]["code"] == "session_still_active"
+    assert content.json()["discipline"] == str(topic.discipline_id)
+
+
+def test_topic_from_another_discipline_is_rejected(
+    auth_client: APIClient, user: User, topic: Topic
+) -> None:
+    other = Discipline.objects.create(owner=user, name="Álgebra", kind="olympiad")
+
+    response = start(auth_client, discipline=str(other.pk), topic=str(topic.pk))
+
+    assert response.status_code == 400
+    assert response.json()["error"]["code"] == "topic_discipline_mismatch"
