@@ -33,7 +33,7 @@ class GoalFilter(django_filters.FilterSet):
 
 
 class GoalViewSet(OwnedQuerysetMixin, viewsets.ModelViewSet[Goal]):
-    queryset = Goal.objects.select_related("discipline", "owner")
+    queryset = Goal.objects.select_related("discipline", "owner__profile")
     serializer_class = GoalSerializer
     http_method_names = ["get", "post", "patch", "delete", "head", "options"]
     filterset_class = GoalFilter

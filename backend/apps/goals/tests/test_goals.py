@@ -242,3 +242,14 @@ def test_isolation(auth_client: APIClient, other_user: User) -> None:
         "discipline": str(theirs.pk),
     }
     assert auth_client.post(GOALS, body, format="json").status_code == 400
+
+
+def test_listing_goals_costs_one_query_per_goal(
+    auth_client: APIClient, user: User, django_assert_max_num_queries: Any
+) -> None:
+    for _ in range(10):
+        goal(user, "study_minutes")
+
+    # Autenticação, contagem e lista, mais uma agregação por meta.
+    with django_assert_max_num_queries(14):
+        assert auth_client.get(GOALS).json()["count"] == 10

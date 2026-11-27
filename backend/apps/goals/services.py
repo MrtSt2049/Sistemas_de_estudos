@@ -90,7 +90,7 @@ def review_draft(*, owner: User, kind: str, day: date | None = None) -> dict[str
     goals = (
         Goal.objects.filter(owner=owner, period_start__lte=last, period_end__gte=first)
         .exclude(status=GoalStatus.ABANDONED)
-        .select_related("discipline", "owner")
+        .select_related("discipline", "owner__profile")
     )
     return {
         "kind": kind,

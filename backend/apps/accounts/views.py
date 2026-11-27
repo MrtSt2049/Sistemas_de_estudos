@@ -84,7 +84,6 @@ class LoginView(_CsrfProtectedView):
 
 
 class RefreshView(_CsrfProtectedView):
-
     @extend_schema(
         request=None,
         responses={200: {"type": "object", "properties": {"status": {"type": "string"}}}},
@@ -127,7 +126,6 @@ class LogoutView(APIView):
 
 
 class RegisterView(_CsrfProtectedView):
-
     @extend_schema(request=RegisterSerializer, responses={201: MeSerializer})
     def post(self, request: Request) -> Response:
         if not settings.ALLOW_REGISTRATION:

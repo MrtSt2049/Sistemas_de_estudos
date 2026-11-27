@@ -25,7 +25,12 @@ class Window:
 
 
 def user_timezone(owner: User) -> ZoneInfo:
-    profile, _ = UserProfile.objects.get_or_create(user=owner)
+    # O acesso reverso reaproveita o perfil já carregado (select_related ou cache),
+    # evitando uma consulta por meta nas listagens.
+    try:
+        profile = owner.profile
+    except UserProfile.DoesNotExist:
+        profile, _ = UserProfile.objects.get_or_create(user=owner)
     return ZoneInfo(profile.timezone)
 
 

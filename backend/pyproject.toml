@@ -10,6 +10,8 @@ ignore = ["S101"]
 [tool.ruff.lint.per-file-ignores]
 "**/tests/**" = ["S105", "S106"]
 "conftest.py" = ["S105", "S106"]
+# Dados sintéticos de carga; não há uso criptográfico.
+"scripts/**" = ["S311"]
 "tests/**" = ["S105", "S106"]
 
 [tool.mypy]
