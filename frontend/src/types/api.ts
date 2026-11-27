@@ -4,657 +4,2610 @@
  */
 
 export interface paths {
-    "/api/v1/attempts/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_attempts_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+  "/api/v1/attempts/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/attempts/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_attempts_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_attempts_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_attempts_partial_update"];
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_attempts_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/attempts/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/change-password/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["api_v1_auth_change_password_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_attempts_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_attempts_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_attempts_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/auth/change-password/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/csrf/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["api_v1_auth_csrf_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_auth_change_password_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/auth/csrf/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/login/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["api_v1_auth_login_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get: operations["api_v1_auth_csrf_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/auth/login/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/logout/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["api_v1_auth_logout_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_auth_login_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/auth/logout/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/me/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get: operations["api_v1_auth_me_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch: operations["api_v1_auth_me_partial_update"];
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_auth_logout_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/auth/me/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/refresh/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["api_v1_auth_refresh_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get: operations["api_v1_auth_me_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch: operations["api_v1_auth_me_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/auth/refresh/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/auth/register/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post: operations["api_v1_auth_register_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_auth_refresh_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/auth/register/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/disciplines/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_disciplines_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_disciplines_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_auth_register_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/cp/summary/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/disciplines/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_disciplines_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_disciplines_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_disciplines_partial_update"];
-        trace?: never;
+    get: operations["api_v1_cp_summary_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/cp/sync/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/disciplines/{id}/archive/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_disciplines_archive_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_cp_sync_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/cp/upsolving/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/disciplines/{id}/unarchive/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_disciplines_unarchive_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get: operations["api_v1_cp_upsolving_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/cp/upsolving/import/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/disciplines/reorder/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_disciplines_reorder_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    post: operations["api_v1_cp_upsolving_import_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/disciplines/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/error-types/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        get: operations["api_v1_error_types_list"];
-        put?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        post: operations["api_v1_error_types_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_disciplines_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_disciplines_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/disciplines/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/error-types/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        get: operations["api_v1_error_types_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        delete: operations["api_v1_error_types_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        patch: operations["api_v1_error_types_partial_update"];
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_disciplines_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_disciplines_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_disciplines_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/disciplines/{id}/archive/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/exercise-sources/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        get: operations["api_v1_exercise_sources_list"];
-        put?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        post: operations["api_v1_exercise_sources_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_disciplines_archive_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/disciplines/{id}/unarchive/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/exercise-sources/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        get: operations["api_v1_exercise_sources_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        delete: operations["api_v1_exercise_sources_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
-        patch: operations["api_v1_exercise_sources_partial_update"];
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_disciplines_unarchive_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/disciplines/reorder/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/exercises/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_exercises_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_exercises_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_disciplines_reorder_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/error-types/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/exercises/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_exercises_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_exercises_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_exercises_partial_update"];
-        trace?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    get: operations["api_v1_error_types_list"];
+    put?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    post: operations["api_v1_error_types_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/error-types/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/exercises/{id}/attempts/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_exercises_attempts_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_exercises_attempts_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    get: operations["api_v1_error_types_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    delete: operations["api_v1_error_types_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    patch: operations["api_v1_error_types_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/exercise-sources/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/reviews/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_reviews_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    get: operations["api_v1_exercise_sources_list"];
+    put?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    post: operations["api_v1_exercise_sources_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/exercise-sources/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/reviews/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_reviews_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_reviews_destroy"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    get: operations["api_v1_exercise_sources_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    delete: operations["api_v1_exercise_sources_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+    patch: operations["api_v1_exercise_sources_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/exercises/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/reviews/{id}/answer/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_reviews_answer_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_exercises_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_exercises_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/exercises/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/reviews/queue/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_reviews_queue_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_exercises_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_exercises_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_exercises_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/exercises/{id}/attempts/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/reviews/schedule/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_reviews_schedule_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_exercises_attempts_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_exercises_attempts_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/reviews/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/study-sessions/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_study_sessions_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_study_sessions_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_reviews_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/reviews/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/study-sessions/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_study_sessions_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_study_sessions_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_study_sessions_partial_update"];
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_reviews_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_reviews_destroy"];
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/reviews/{id}/answer/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/study-sessions/active/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_study_sessions_active_retrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_reviews_answer_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/reviews/queue/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/study-sessions/active/finish/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_study_sessions_active_finish_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_reviews_queue_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/reviews/schedule/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/study-sessions/start/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_study_sessions_start_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_reviews_schedule_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/study-sessions/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/tags/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_tags_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_tags_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_study_sessions_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_study_sessions_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/study-sessions/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/tags/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_tags_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_tags_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_tags_partial_update"];
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_study_sessions_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_study_sessions_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_study_sessions_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/study-sessions/active/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/topics/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_topics_list"];
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_topics_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_study_sessions_active_retrieve"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/study-sessions/active/finish/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/topics/{id}/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_topics_retrieve"];
-        put?: never;
-        post?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        delete: operations["api_v1_topics_destroy"];
-        options?: never;
-        head?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        patch: operations["api_v1_topics_partial_update"];
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_study_sessions_active_finish_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/study-sessions/start/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/topics/{id}/move/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        post: operations["api_v1_topics_move_create"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_study_sessions_start_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/tags/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
-    "/api/v1/topics/tree/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /** @description Filter queryset by authenticated user and inject owner on creation. */
-        get: operations["api_v1_topics_tree_list"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_tags_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_tags_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/tags/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
     };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_tags_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_tags_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_tags_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/topics/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_topics_list"];
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_topics_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/topics/{id}/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_topics_retrieve"];
+    put?: never;
+    post?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    delete: operations["api_v1_topics_destroy"];
+    options?: never;
+    head?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    patch: operations["api_v1_topics_partial_update"];
+    trace?: never;
+  };
+  "/api/v1/topics/{id}/move/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    post: operations["api_v1_topics_move_create"];
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  "/api/v1/topics/tree/": {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /** @description Filter queryset by authenticated user and inject owner on creation. */
+    get: operations["api_v1_topics_tree_list"];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: {
+  schemas: {
+    /**
+     * @description * `reading` - Leitura
+     *     * `exercises` - Exercícios
+     *     * `review` - Revisão
+     *     * `class` - Aula
+     *     * `mock_exam` - Simulado
+     *     * `project` - Projeto
+     *     * `programming` - Programação
+     * @enum {string}
+     */
+    ActivityKindEnum:
+      "reading" | "exercises" | "review" | "class" | "mock_exam" | "project" | "programming";
+    Attempt: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: uuid */
+      readonly exercise: string;
+      readonly exercise_title: string;
+      /** Format: uuid */
+      study_session?: string | null;
+      /** Format: uuid */
+      readonly discipline: string;
+      /** Format: date-time */
+      attempted_at?: string;
+      result: components["schemas"]["ResultEnum"];
+      duration_seconds?: number | null;
+      hint_level?: number;
+      /** Format: uuid */
+      dominant_error?: string | null;
+      readonly dominant_error_name: string;
+      key_technique?: string;
+      rewritten?: boolean;
+      notes_md?: string;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    AttemptRecorded: {
+      attempt: components["schemas"]["Attempt"];
+      exercise_state: string;
+    };
+    AttemptRequest: {
+      /** Format: uuid */
+      study_session?: string | null;
+      /** Format: date-time */
+      attempted_at?: string;
+      result: components["schemas"]["ResultEnum"];
+      duration_seconds?: number | null;
+      hint_level?: number;
+      /** Format: uuid */
+      dominant_error?: string | null;
+      key_technique?: string;
+      rewritten?: boolean;
+      notes_md?: string;
+    };
+    ChangePasswordRequest: {
+      current_password: string;
+      new_password: string;
+    };
+    CpSummary: {
+      handle: string | null;
+      /** Format: date-time */
+      last_synced_at: string | null;
+      solved_count: number;
+      unrated_count: number;
+      by_rating: components["schemas"]["RatingBucket"][];
+      by_tag: components["schemas"]["TagBucket"][];
+      rating_history: components["schemas"]["RatingChange"][];
+    };
+    Discipline: {
+      /** Format: uuid */
+      readonly id: string;
+      name: string;
+      kind: components["schemas"]["DisciplineKindEnum"];
+      code?: string;
+      color?: string;
+      position?: number;
+      /** Format: date-time */
+      readonly archived_at: string | null;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    /**
+     * @description * `university_course` - Curso universitário
+     *     * `olympiad` - Olimpíada
+     *     * `competitive_programming` - Programação competitiva
+     *     * `software_engineering` - Engenharia de software
+     *     * `self_study` - Estudo livre
+     * @enum {string}
+     */
+    DisciplineKindEnum:
+      | "university_course"
+      | "olympiad"
+      | "competitive_programming"
+      | "software_engineering"
+      | "self_study";
+    DisciplineRequest: {
+      name: string;
+      kind: components["schemas"]["DisciplineKindEnum"];
+      code?: string;
+      color?: string;
+      position?: number;
+    };
+    ErrorType: {
+      /** Format: uuid */
+      readonly id: string;
+      name: string;
+      readonly is_default: boolean;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    ErrorTypeRequest: {
+      name: string;
+    };
+    Exercise: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: uuid */
+      discipline: string;
+      readonly discipline_name: string;
+      /** Format: uuid */
+      topic?: string | null;
+      readonly topic_title: string;
+      /** Format: uuid */
+      source: string;
+      readonly source_name: string;
+      external_ref?: string | null;
+      title: string;
+      statement_md?: string;
+      solution_md?: string;
+      difficulty?: number | null;
+      /** Format: uri */
+      url?: string;
+      readonly state: components["schemas"]["StateEnum"];
+      /** Format: date-time */
+      readonly mastered_at: string | null;
+      tags?: string[];
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    ExerciseRequest: {
+      /** Format: uuid */
+      discipline: string;
+      /** Format: uuid */
+      topic?: string | null;
+      /** Format: uuid */
+      source: string;
+      external_ref?: string | null;
+      title: string;
+      statement_md?: string;
+      solution_md?: string;
+      difficulty?: number | null;
+      /** Format: uri */
+      url?: string;
+      tags?: string[];
+    };
+    ExerciseSource: {
+      /** Format: uuid */
+      readonly id: string;
+      name: string;
+      kind?: components["schemas"]["ExerciseSourceKindEnum"];
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    /**
+     * @description * `olympiad` - Olimpíada
+     *     * `competitive` - Programação competitiva
+     *     * `book` - Livro
+     *     * `course` - Curso
+     *     * `other` - Outra
+     * @enum {string}
+     */
+    ExerciseSourceKindEnum: "olympiad" | "competitive" | "book" | "course" | "other";
+    ExerciseSourceRequest: {
+      name: string;
+      kind?: components["schemas"]["ExerciseSourceKindEnum"];
+    };
+    ImportedExercise: {
+      /** Format: uuid */
+      exercise: string;
+    };
+    LoginRequest: {
+      /** Format: email */
+      email: string;
+      password: string;
+    };
+    Me: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: email */
+      readonly email: string;
+      /** Format: date-time */
+      readonly date_joined: string;
+      profile: components["schemas"]["UserProfile"];
+    };
+    PaginatedAttemptList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Attempt"][];
+    };
+    PaginatedDisciplineList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Discipline"][];
+    };
+    PaginatedErrorTypeList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["ErrorType"][];
+    };
+    PaginatedExerciseList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Exercise"][];
+    };
+    PaginatedExerciseSourceList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["ExerciseSource"][];
+    };
+    PaginatedReviewItemList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["ReviewItem"][];
+    };
+    PaginatedStudySessionList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["StudySession"][];
+    };
+    PaginatedTagList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Tag"][];
+    };
+    PaginatedTopicList: {
+      /** @example 123 */
+      count: number;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=4
+       */
+      next?: string | null;
+      /**
+       * Format: uri
+       * @example http://api.example.org/accounts/?page=2
+       */
+      previous?: string | null;
+      results: components["schemas"]["Topic"][];
+    };
+    PatchedAttemptRequest: {
+      /** Format: uuid */
+      study_session?: string | null;
+      /** Format: date-time */
+      attempted_at?: string;
+      result?: components["schemas"]["ResultEnum"];
+      duration_seconds?: number | null;
+      hint_level?: number;
+      /** Format: uuid */
+      dominant_error?: string | null;
+      key_technique?: string;
+      rewritten?: boolean;
+      notes_md?: string;
+    };
+    PatchedDisciplineRequest: {
+      name?: string;
+      kind?: components["schemas"]["DisciplineKindEnum"];
+      code?: string;
+      color?: string;
+      position?: number;
+    };
+    PatchedErrorTypeRequest: {
+      name?: string;
+    };
+    PatchedExerciseRequest: {
+      /** Format: uuid */
+      discipline?: string;
+      /** Format: uuid */
+      topic?: string | null;
+      /** Format: uuid */
+      source?: string;
+      external_ref?: string | null;
+      title?: string;
+      statement_md?: string;
+      solution_md?: string;
+      difficulty?: number | null;
+      /** Format: uri */
+      url?: string;
+      tags?: string[];
+    };
+    PatchedExerciseSourceRequest: {
+      name?: string;
+      kind?: components["schemas"]["ExerciseSourceKindEnum"];
+    };
+    PatchedMeRequest: {
+      profile?: components["schemas"]["UserProfileRequest"];
+    };
+    PatchedStudySessionRequest: {
+      activity_kind?: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+      /** Format: uuid */
+      topic?: string | null;
+      /** Format: date-time */
+      started_at?: string;
+      /** Format: date-time */
+      ended_at?: string;
+      focus_rating?: number | null;
+      energy_rating?: number | null;
+      notes?: string;
+    };
+    PatchedTagRequest: {
+      name?: string;
+    };
+    PatchedTopicRequest: {
+      /** Format: uuid */
+      discipline?: string;
+      /** Format: uuid */
+      parent?: string | null;
+      title?: string;
+      description?: string;
+      status?: components["schemas"]["TopicStatusEnum"];
+    };
+    RatingBucket: {
+      rating: number;
+      count: number;
+    };
+    RatingChange: {
+      contest_id: number;
+      contest_name: string;
+      rank: number;
+      old_rating: number;
+      new_rating: number;
+      /** Format: date-time */
+      happened_at: string;
+    };
+    RegisterRequest: {
+      /** Format: email */
+      email: string;
+      password: string;
+      /** @default  */
+      display_name: string;
+    };
+    ReorderRequest: {
+      ids: string[];
+    };
+    /**
+     * @description * `solved_alone` - Resolvi sozinho
+     *     * `solved_with_hint` - Resolvi com dica
+     *     * `partial` - Parcial
+     *     * `not_solved` - Não resolvi
+     * @enum {string}
+     */
+    ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
+    ReviewAnswerRequest: {
+      rating: components["schemas"]["ReviewRatingEnum"];
+      /** Format: uuid */
+      idempotency_key: string;
+    };
+    ReviewItem: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: uuid */
+      readonly exercise: string | null;
+      /** Format: uuid */
+      readonly topic: string | null;
+      readonly title: string;
+      readonly discipline_name: string;
+      readonly statement_md: string;
+      readonly solution_md: string;
+      readonly step: number;
+      /** Format: date */
+      readonly due_on: string;
+      readonly status: components["schemas"]["ReviewItemStatusEnum"];
+      /** Format: date-time */
+      readonly last_reviewed_at: string | null;
+    };
+    /**
+     * @description * `active` - Ativo
+     *     * `suspended` - Suspenso
+     * @enum {string}
+     */
+    ReviewItemStatusEnum: "active" | "suspended";
+    ReviewOutcome: {
+      /** Format: uuid */
+      item: string;
+      rating: string;
+      step: number;
+      /** Format: date */
+      due_on: string;
+    };
+    ReviewQueue: {
+      /** Format: date */
+      today: string;
+      count: number;
+      results: components["schemas"]["ReviewItem"][];
+    };
+    /**
+     * @description * `again` - Errei
+     *     * `hard` - Difícil
+     *     * `good` - Bom
+     *     * `easy` - Fácil
+     * @enum {string}
+     */
+    ReviewRatingEnum: "again" | "hard" | "good" | "easy";
+    ReviewScheduleRequest: {
+      /** Format: uuid */
+      exercise?: string;
+      /** Format: uuid */
+      topic?: string;
+    };
+    SessionFinishRequest: {
+      focus_rating?: number | null;
+      energy_rating?: number | null;
+      notes?: string;
+    };
+    SessionStartRequest: {
+      /** Format: uuid */
+      discipline?: string | null;
+      /** Format: uuid */
+      topic?: string | null;
+      activity_kind: components["schemas"]["ActivityKindEnum"];
+    };
+    /**
+     * @description * `new` - Novo
+     *     * `in_progress` - Em andamento
+     *     * `solved` - Resolvido
+     *     * `mastered` - Bem estudado
+     * @enum {string}
+     */
+    StateEnum: "new" | "in_progress" | "solved" | "mastered";
+    StudySession: {
+      /** Format: uuid */
+      readonly id: string;
+      activity_kind: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+      readonly discipline_name: string;
+      /** Format: uuid */
+      topic?: string | null;
+      readonly topic_title: string;
+      /** Format: date-time */
+      started_at: string;
+      /** Format: date-time */
+      ended_at: string;
+      readonly duration_seconds: number | null;
+      readonly elapsed_seconds: number;
+      focus_rating?: number | null;
+      energy_rating?: number | null;
+      notes?: string;
+      readonly is_manual: boolean;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    StudySessionRequest: {
+      activity_kind: components["schemas"]["ActivityKindEnum"];
+      /** Format: uuid */
+      discipline?: string | null;
+      /** Format: uuid */
+      topic?: string | null;
+      /** Format: date-time */
+      started_at: string;
+      /** Format: date-time */
+      ended_at: string;
+      focus_rating?: number | null;
+      energy_rating?: number | null;
+      notes?: string;
+    };
+    SyncRequestRequest: {
+      handle: string;
+    };
+    SyncResult: {
+      handle: string;
+      new_submissions: number;
+      total_submissions: number;
+      rating_changes: number;
+    };
+    Tag: {
+      /** Format: uuid */
+      readonly id: string;
+      name: string;
+      readonly slug: string;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    TagBucket: {
+      tag: string;
+      count: number;
+    };
+    TagRequest: {
+      name: string;
+    };
+    /**
+     * @description * `light` - Claro
+     *     * `dark` - Escuro
+     *     * `system` - Sistema
+     * @enum {string}
+     */
+    ThemeEnum: "light" | "dark" | "system";
+    Topic: {
+      /** Format: uuid */
+      readonly id: string;
+      /** Format: uuid */
+      discipline: string;
+      /** Format: uuid */
+      parent?: string | null;
+      title: string;
+      description?: string;
+      readonly position: number;
+      status?: components["schemas"]["TopicStatusEnum"];
+      /** Format: date-time */
+      readonly last_studied_at: string | null;
+      /** Format: date-time */
+      readonly created_at: string;
+      /** Format: date-time */
+      readonly updated_at: string;
+    };
+    TopicMoveRequest: {
+      /** Format: uuid */
+      parent?: string | null;
+      position: number;
+    };
+    TopicNode: {
+      /** Format: uuid */
+      id: string;
+      title: string;
+      description: string;
+      status: string;
+      position: number;
+      /** Format: uuid */
+      parent: string | null;
+      /** Format: date-time */
+      last_studied_at: string | null;
+      readonly children: unknown;
+    };
+    TopicRequest: {
+      /** Format: uuid */
+      discipline: string;
+      /** Format: uuid */
+      parent?: string | null;
+      title: string;
+      description?: string;
+      status?: components["schemas"]["TopicStatusEnum"];
+    };
+    /**
+     * @description * `not_started` - Não iniciado
+     *     * `in_progress` - Em andamento
+     *     * `done` - Concluído
+     * @enum {string}
+     */
+    TopicStatusEnum: "not_started" | "in_progress" | "done";
+    UpsolveImportRequest: {
+      contest_id: number;
+      problem_index: string;
+      /** Format: uuid */
+      discipline: string;
+    };
+    UpsolveItem: {
+      contest_id: number | null;
+      problem_index: string;
+      problem_name: string;
+      rating: number | null;
+      tags: string[];
+      attempts: number;
+      /** Format: date-time */
+      last_attempt_at: string;
+      url: string;
+      /** Format: uuid */
+      exercise: string | null;
+    };
+    UpsolvePage: {
+      count: number;
+      results: components["schemas"]["UpsolveItem"][];
+    };
+    UserProfile: {
+      display_name?: string;
+      timezone?: string;
+      locale?: string;
+      theme?: components["schemas"]["ThemeEnum"];
+      daily_study_goal_minutes?: number;
+      week_starts_on?: number;
+      review_intervals_days?: unknown;
+    };
+    UserProfileRequest: {
+      display_name?: string;
+      timezone?: string;
+      locale?: string;
+      theme?: components["schemas"]["ThemeEnum"];
+      daily_study_goal_minutes?: number;
+      week_starts_on?: number;
+      review_intervals_days?: unknown;
+    };
+  };
+  responses: never;
+  parameters: never;
+  requestBodies: never;
+  headers: never;
+  pathItems: never;
+}
+export type $defs = Record<string, never>;
+export interface operations {
+  api_v1_attempts_list: {
+    parameters: {
+      query?: {
+        discipline?: string;
+        dominant_error?: string;
+        exercise?: string;
+        has_error?: boolean;
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /**
+         * @description * `solved_alone` - Resolvi sozinho
+         *     * `solved_with_hint` - Resolvi com dica
+         *     * `partial` - Parcial
+         *     * `not_solved` - Não resolvi
+         */
+        result?: "not_solved" | "partial" | "solved_alone" | "solved_with_hint";
+        rewritten?: boolean;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedAttemptList"];
+        };
+      };
+    };
+  };
+  api_v1_attempts_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este attempt. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Attempt"];
+        };
+      };
+    };
+  };
+  api_v1_attempts_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este attempt. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_attempts_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este attempt. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedAttemptRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedAttemptRequest"];
+        "multipart/form-data": components["schemas"]["PatchedAttemptRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Attempt"];
+        };
+      };
+    };
+  };
+  api_v1_auth_change_password_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ChangePasswordRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ChangePasswordRequest"];
+        "multipart/form-data": components["schemas"]["ChangePasswordRequest"];
+      };
+    };
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_auth_csrf_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            csrfToken?: string;
+          };
+        };
+      };
+    };
+  };
+  api_v1_auth_login_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["LoginRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["LoginRequest"];
+        "multipart/form-data": components["schemas"]["LoginRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Me"];
+        };
+      };
+    };
+  };
+  api_v1_auth_logout_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_auth_me_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Me"];
+        };
+      };
+    };
+  };
+  api_v1_auth_me_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedMeRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedMeRequest"];
+        "multipart/form-data": components["schemas"]["PatchedMeRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Me"];
+        };
+      };
+    };
+  };
+  api_v1_auth_refresh_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": {
+            status?: string;
+          };
+        };
+      };
+    };
+  };
+  api_v1_auth_register_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["RegisterRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["RegisterRequest"];
+        "multipart/form-data": components["schemas"]["RegisterRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Me"];
+        };
+      };
+    };
+  };
+  api_v1_cp_summary_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["CpSummary"];
+        };
+      };
+    };
+  };
+  api_v1_cp_sync_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["SyncRequestRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["SyncRequestRequest"];
+        "multipart/form-data": components["schemas"]["SyncRequestRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["SyncResult"];
+        };
+      };
+    };
+  };
+  api_v1_cp_upsolving_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["UpsolvePage"];
+        };
+      };
+    };
+  };
+  api_v1_cp_upsolving_import_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["UpsolveImportRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["UpsolveImportRequest"];
+        "multipart/form-data": components["schemas"]["UpsolveImportRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ImportedExercise"];
+        };
+      };
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ImportedExercise"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_list: {
+    parameters: {
+      query?: {
+        /** @description false (padrão), true ou all */
+        archived?: string;
+        /**
+         * @description * `university_course` - Curso universitário
+         *     * `olympiad` - Olimpíada
+         *     * `competitive_programming` - Programação competitiva
+         *     * `software_engineering` - Engenharia de software
+         *     * `self_study` - Estudo livre
+         */
+        kind?:
+          | "competitive_programming"
+          | "olympiad"
+          | "self_study"
+          | "software_engineering"
+          | "university_course";
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedDisciplineList"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["DisciplineRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["DisciplineRequest"];
+        "multipart/form-data": components["schemas"]["DisciplineRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Discipline"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este discipline. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Discipline"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este discipline. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_disciplines_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este discipline. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedDisciplineRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedDisciplineRequest"];
+        "multipart/form-data": components["schemas"]["PatchedDisciplineRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Discipline"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_archive_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este discipline. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Discipline"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_unarchive_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este discipline. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Discipline"];
+        };
+      };
+    };
+  };
+  api_v1_disciplines_reorder_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ReorderRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ReorderRequest"];
+        "multipart/form-data": components["schemas"]["ReorderRequest"];
+      };
+    };
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_error_types_list: {
+    parameters: {
+      query?: {
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedErrorTypeList"];
+        };
+      };
+    };
+  };
+  api_v1_error_types_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ErrorTypeRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ErrorTypeRequest"];
+        "multipart/form-data": components["schemas"]["ErrorTypeRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorType"];
+        };
+      };
+    };
+  };
+  api_v1_error_types_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este error type. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorType"];
+        };
+      };
+    };
+  };
+  api_v1_error_types_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este error type. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_error_types_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este error type. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedErrorTypeRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedErrorTypeRequest"];
+        "multipart/form-data": components["schemas"]["PatchedErrorTypeRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ErrorType"];
+        };
+      };
+    };
+  };
+  api_v1_exercise_sources_list: {
+    parameters: {
+      query?: {
+        /**
+         * @description * `olympiad` - Olimpíada
+         *     * `competitive` - Programação competitiva
+         *     * `book` - Livro
+         *     * `course` - Curso
+         *     * `other` - Outra
+         */
+        kind?: "book" | "competitive" | "course" | "olympiad" | "other";
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedExerciseSourceList"];
+        };
+      };
+    };
+  };
+  api_v1_exercise_sources_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ExerciseSourceRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ExerciseSourceRequest"];
+        "multipart/form-data": components["schemas"]["ExerciseSourceRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExerciseSource"];
+        };
+      };
+    };
+  };
+  api_v1_exercise_sources_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise source. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExerciseSource"];
+        };
+      };
+    };
+  };
+  api_v1_exercise_sources_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise source. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_exercise_sources_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise source. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedExerciseSourceRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseSourceRequest"];
+        "multipart/form-data": components["schemas"]["PatchedExerciseSourceRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ExerciseSource"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_list: {
+    parameters: {
+      query?: {
+        difficulty?: number;
+        discipline?: string;
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+        source?: string;
+        /**
+         * @description * `new` - Novo
+         *     * `in_progress` - Em andamento
+         *     * `solved` - Resolvido
+         *     * `mastered` - Bem estudado
+         */
+        state?: "in_progress" | "mastered" | "new" | "solved";
+        tag?: string;
+        topic?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedExerciseList"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ExerciseRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ExerciseRequest"];
+        "multipart/form-data": components["schemas"]["ExerciseRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Exercise"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Exercise"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_exercises_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedExerciseRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseRequest"];
+        "multipart/form-data": components["schemas"]["PatchedExerciseRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Exercise"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_attempts_list: {
+    parameters: {
+      query?: {
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+      };
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedAttemptList"];
+        };
+      };
+    };
+  };
+  api_v1_exercises_attempts_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este exercise. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["AttemptRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["AttemptRequest"];
+        "multipart/form-data": components["schemas"]["AttemptRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["AttemptRecorded"];
+        };
+      };
+    };
+  };
+  api_v1_reviews_list: {
+    parameters: {
+      query?: {
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+        /**
+         * @description * `active` - Ativo
+         *     * `suspended` - Suspenso
+         */
+        status?: "active" | "suspended";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedReviewItemList"];
+        };
+      };
+    };
+  };
+  api_v1_reviews_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewItem"];
+        };
+      };
+    };
+  };
+  api_v1_reviews_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_reviews_answer_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["ReviewAnswerRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ReviewAnswerRequest"];
+        "multipart/form-data": components["schemas"]["ReviewAnswerRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewOutcome"];
+        };
+      };
+    };
+  };
+  api_v1_reviews_queue_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewQueue"];
+        };
+      };
+    };
+  };
+  api_v1_reviews_schedule_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["ReviewScheduleRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["ReviewScheduleRequest"];
+        "multipart/form-data": components["schemas"]["ReviewScheduleRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewItem"];
+        };
+      };
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["ReviewItem"];
+        };
+      };
+    };
+  };
+  api_v1_study_sessions_list: {
+    parameters: {
+      query?: {
         /**
          * @description * `reading` - Leitura
          *     * `exercises` - Exercícios
@@ -663,2231 +2616,513 @@ export interface components {
          *     * `mock_exam` - Simulado
          *     * `project` - Projeto
          *     * `programming` - Programação
-         * @enum {string}
          */
-        ActivityKindEnum: "reading" | "exercises" | "review" | "class" | "mock_exam" | "project" | "programming";
-        Attempt: {
-            /** Format: uuid */
-            readonly id: string;
-            /** Format: uuid */
-            readonly exercise: string;
-            readonly exercise_title: string;
-            /** Format: uuid */
-            study_session?: string | null;
-            /** Format: uuid */
-            readonly discipline: string;
-            /** Format: date-time */
-            attempted_at?: string;
-            result: components["schemas"]["ResultEnum"];
-            duration_seconds?: number | null;
-            hint_level?: number;
-            /** Format: uuid */
-            dominant_error?: string | null;
-            readonly dominant_error_name: string;
-            key_technique?: string;
-            rewritten?: boolean;
-            notes_md?: string;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
+        activity_kind?:
+          "class" | "exercises" | "mock_exam" | "programming" | "project" | "reading" | "review";
+        discipline?: string;
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+        started_after?: string;
+        started_before?: string;
+        topic?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        AttemptRecorded: {
-            attempt: components["schemas"]["Attempt"];
-            exercise_state: string;
+        content: {
+          "application/json": components["schemas"]["PaginatedStudySessionList"];
         };
-        AttemptRequest: {
-            /** Format: uuid */
-            study_session?: string | null;
-            /** Format: date-time */
-            attempted_at?: string;
-            result: components["schemas"]["ResultEnum"];
-            duration_seconds?: number | null;
-            hint_level?: number;
-            /** Format: uuid */
-            dominant_error?: string | null;
-            key_technique?: string;
-            rewritten?: boolean;
-            notes_md?: string;
+      };
+    };
+  };
+  api_v1_study_sessions_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["StudySessionRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["StudySessionRequest"];
+        "multipart/form-data": components["schemas"]["StudySessionRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
         };
-        ChangePasswordRequest: {
-            current_password: string;
-            new_password: string;
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        Discipline: {
-            /** Format: uuid */
-            readonly id: string;
-            name: string;
-            kind: components["schemas"]["DisciplineKindEnum"];
-            code?: string;
-            color?: string;
-            position?: number;
-            /** Format: date-time */
-            readonly archived_at: string | null;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
+      };
+    };
+  };
+  api_v1_study_sessions_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este study session. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        /**
-         * @description * `university_course` - Curso universitário
-         *     * `olympiad` - Olimpíada
-         *     * `competitive_programming` - Programação competitiva
-         *     * `software_engineering` - Engenharia de software
-         *     * `self_study` - Estudo livre
-         * @enum {string}
-         */
-        DisciplineKindEnum: "university_course" | "olympiad" | "competitive_programming" | "software_engineering" | "self_study";
-        DisciplineRequest: {
-            name: string;
-            kind: components["schemas"]["DisciplineKindEnum"];
-            code?: string;
-            color?: string;
-            position?: number;
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        ErrorType: {
-            /** Format: uuid */
-            readonly id: string;
-            name: string;
-            readonly is_default: boolean;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
+      };
+    };
+  };
+  api_v1_study_sessions_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este study session. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
         };
-        ErrorTypeRequest: {
-            name: string;
+        content?: never;
+      };
+    };
+  };
+  api_v1_study_sessions_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este study session. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedStudySessionRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedStudySessionRequest"];
+        "multipart/form-data": components["schemas"]["PatchedStudySessionRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        Exercise: {
-            /** Format: uuid */
-            readonly id: string;
-            /** Format: uuid */
-            discipline: string;
-            readonly discipline_name: string;
-            /** Format: uuid */
-            topic?: string | null;
-            readonly topic_title: string;
-            /** Format: uuid */
-            source: string;
-            readonly source_name: string;
-            external_ref?: string | null;
-            title: string;
-            statement_md?: string;
-            solution_md?: string;
-            difficulty?: number | null;
-            /** Format: uri */
-            url?: string;
-            readonly state: components["schemas"]["StateEnum"];
-            /** Format: date-time */
-            readonly mastered_at: string | null;
-            tags?: string[];
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        ExerciseRequest: {
-            /** Format: uuid */
-            discipline: string;
-            /** Format: uuid */
-            topic?: string | null;
-            /** Format: uuid */
-            source: string;
-            external_ref?: string | null;
-            title: string;
-            statement_md?: string;
-            solution_md?: string;
-            difficulty?: number | null;
-            /** Format: uri */
-            url?: string;
-            tags?: string[];
+      };
+    };
+  };
+  api_v1_study_sessions_active_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        ExerciseSource: {
-            /** Format: uuid */
-            readonly id: string;
-            name: string;
-            kind?: components["schemas"]["ExerciseSourceKindEnum"];
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        /**
-         * @description * `olympiad` - Olimpíada
-         *     * `competitive` - Programação competitiva
-         *     * `book` - Livro
-         *     * `course` - Curso
-         *     * `other` - Outra
-         * @enum {string}
-         */
-        ExerciseSourceKindEnum: "olympiad" | "competitive" | "book" | "course" | "other";
-        ExerciseSourceRequest: {
-            name: string;
-            kind?: components["schemas"]["ExerciseSourceKindEnum"];
+      };
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
         };
-        LoginRequest: {
-            /** Format: email */
-            email: string;
-            password: string;
+        content?: never;
+      };
+    };
+  };
+  api_v1_study_sessions_active_finish_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["SessionFinishRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["SessionFinishRequest"];
+        "multipart/form-data": components["schemas"]["SessionFinishRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        Me: {
-            /** Format: uuid */
-            readonly id: string;
-            /** Format: email */
-            readonly email: string;
-            /** Format: date-time */
-            readonly date_joined: string;
-            profile: components["schemas"]["UserProfile"];
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        PaginatedAttemptList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["Attempt"][];
+      };
+    };
+  };
+  api_v1_study_sessions_start_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["SessionStartRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["SessionStartRequest"];
+        "multipart/form-data": components["schemas"]["SessionStartRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
         };
-        PaginatedDisciplineList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["Discipline"][];
+        content: {
+          "application/json": components["schemas"]["StudySession"];
         };
-        PaginatedErrorTypeList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["ErrorType"][];
+      };
+    };
+  };
+  api_v1_tags_list: {
+    parameters: {
+      query?: {
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        /** @description Um termo de busca. */
+        search?: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        PaginatedExerciseList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["Exercise"][];
+        content: {
+          "application/json": components["schemas"]["PaginatedTagList"];
         };
-        PaginatedExerciseSourceList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["ExerciseSource"][];
+      };
+    };
+  };
+  api_v1_tags_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["TagRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["TagRequest"];
+        "multipart/form-data": components["schemas"]["TagRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
         };
-        PaginatedReviewItemList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["ReviewItem"][];
+        content: {
+          "application/json": components["schemas"]["Tag"];
         };
-        PaginatedStudySessionList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["StudySession"][];
+      };
+    };
+  };
+  api_v1_tags_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este tag. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        PaginatedTagList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["Tag"][];
+        content: {
+          "application/json": components["schemas"]["Tag"];
         };
-        PaginatedTopicList: {
-            /** @example 123 */
-            count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
-            results: components["schemas"]["Topic"][];
+      };
+    };
+  };
+  api_v1_tags_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este tag. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
         };
-        PatchedAttemptRequest: {
-            /** Format: uuid */
-            study_session?: string | null;
-            /** Format: date-time */
-            attempted_at?: string;
-            result?: components["schemas"]["ResultEnum"];
-            duration_seconds?: number | null;
-            hint_level?: number;
-            /** Format: uuid */
-            dominant_error?: string | null;
-            key_technique?: string;
-            rewritten?: boolean;
-            notes_md?: string;
+        content?: never;
+      };
+    };
+  };
+  api_v1_tags_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este tag. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedTagRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedTagRequest"];
+        "multipart/form-data": components["schemas"]["PatchedTagRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
         };
-        PatchedDisciplineRequest: {
-            name?: string;
-            kind?: components["schemas"]["DisciplineKindEnum"];
-            code?: string;
-            color?: string;
-            position?: number;
+        content: {
+          "application/json": components["schemas"]["Tag"];
         };
-        PatchedErrorTypeRequest: {
-            name?: string;
-        };
-        PatchedExerciseRequest: {
-            /** Format: uuid */
-            discipline?: string;
-            /** Format: uuid */
-            topic?: string | null;
-            /** Format: uuid */
-            source?: string;
-            external_ref?: string | null;
-            title?: string;
-            statement_md?: string;
-            solution_md?: string;
-            difficulty?: number | null;
-            /** Format: uri */
-            url?: string;
-            tags?: string[];
-        };
-        PatchedExerciseSourceRequest: {
-            name?: string;
-            kind?: components["schemas"]["ExerciseSourceKindEnum"];
-        };
-        PatchedMeRequest: {
-            profile?: components["schemas"]["UserProfileRequest"];
-        };
-        PatchedStudySessionRequest: {
-            activity_kind?: components["schemas"]["ActivityKindEnum"];
-            /** Format: uuid */
-            discipline?: string | null;
-            /** Format: uuid */
-            topic?: string | null;
-            /** Format: date-time */
-            started_at?: string;
-            /** Format: date-time */
-            ended_at?: string;
-            focus_rating?: number | null;
-            energy_rating?: number | null;
-            notes?: string;
-        };
-        PatchedTagRequest: {
-            name?: string;
-        };
-        PatchedTopicRequest: {
-            /** Format: uuid */
-            discipline?: string;
-            /** Format: uuid */
-            parent?: string | null;
-            title?: string;
-            description?: string;
-            status?: components["schemas"]["TopicStatusEnum"];
-        };
-        RegisterRequest: {
-            /** Format: email */
-            email: string;
-            password: string;
-            /** @default  */
-            display_name: string;
-        };
-        ReorderRequest: {
-            ids: string[];
-        };
-        /**
-         * @description * `solved_alone` - Resolvi sozinho
-         *     * `solved_with_hint` - Resolvi com dica
-         *     * `partial` - Parcial
-         *     * `not_solved` - Não resolvi
-         * @enum {string}
-         */
-        ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
-        ReviewAnswerRequest: {
-            rating: components["schemas"]["ReviewRatingEnum"];
-            /** Format: uuid */
-            idempotency_key: string;
-        };
-        ReviewItem: {
-            /** Format: uuid */
-            readonly id: string;
-            /** Format: uuid */
-            readonly exercise: string | null;
-            /** Format: uuid */
-            readonly topic: string | null;
-            readonly title: string;
-            readonly discipline_name: string;
-            readonly statement_md: string;
-            readonly solution_md: string;
-            readonly step: number;
-            /** Format: date */
-            readonly due_on: string;
-            readonly status: components["schemas"]["ReviewItemStatusEnum"];
-            /** Format: date-time */
-            readonly last_reviewed_at: string | null;
-        };
-        /**
-         * @description * `active` - Ativo
-         *     * `suspended` - Suspenso
-         * @enum {string}
-         */
-        ReviewItemStatusEnum: "active" | "suspended";
-        ReviewOutcome: {
-            /** Format: uuid */
-            item: string;
-            rating: string;
-            step: number;
-            /** Format: date */
-            due_on: string;
-        };
-        ReviewQueue: {
-            /** Format: date */
-            today: string;
-            count: number;
-            results: components["schemas"]["ReviewItem"][];
-        };
-        /**
-         * @description * `again` - Errei
-         *     * `hard` - Difícil
-         *     * `good` - Bom
-         *     * `easy` - Fácil
-         * @enum {string}
-         */
-        ReviewRatingEnum: "again" | "hard" | "good" | "easy";
-        ReviewScheduleRequest: {
-            /** Format: uuid */
-            exercise?: string;
-            /** Format: uuid */
-            topic?: string;
-        };
-        SessionFinishRequest: {
-            focus_rating?: number | null;
-            energy_rating?: number | null;
-            notes?: string;
-        };
-        SessionStartRequest: {
-            /** Format: uuid */
-            discipline?: string | null;
-            /** Format: uuid */
-            topic?: string | null;
-            activity_kind: components["schemas"]["ActivityKindEnum"];
-        };
-        /**
-         * @description * `new` - Novo
-         *     * `in_progress` - Em andamento
-         *     * `solved` - Resolvido
-         *     * `mastered` - Bem estudado
-         * @enum {string}
-         */
-        StateEnum: "new" | "in_progress" | "solved" | "mastered";
-        StudySession: {
-            /** Format: uuid */
-            readonly id: string;
-            activity_kind: components["schemas"]["ActivityKindEnum"];
-            /** Format: uuid */
-            discipline?: string | null;
-            readonly discipline_name: string;
-            /** Format: uuid */
-            topic?: string | null;
-            readonly topic_title: string;
-            /** Format: date-time */
-            started_at: string;
-            /** Format: date-time */
-            ended_at: string;
-            readonly duration_seconds: number | null;
-            readonly elapsed_seconds: number;
-            focus_rating?: number | null;
-            energy_rating?: number | null;
-            notes?: string;
-            readonly is_manual: boolean;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
-        };
-        StudySessionRequest: {
-            activity_kind: components["schemas"]["ActivityKindEnum"];
-            /** Format: uuid */
-            discipline?: string | null;
-            /** Format: uuid */
-            topic?: string | null;
-            /** Format: date-time */
-            started_at: string;
-            /** Format: date-time */
-            ended_at: string;
-            focus_rating?: number | null;
-            energy_rating?: number | null;
-            notes?: string;
-        };
-        Tag: {
-            /** Format: uuid */
-            readonly id: string;
-            name: string;
-            readonly slug: string;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
-        };
-        TagRequest: {
-            name: string;
-        };
-        /**
-         * @description * `light` - Claro
-         *     * `dark` - Escuro
-         *     * `system` - Sistema
-         * @enum {string}
-         */
-        ThemeEnum: "light" | "dark" | "system";
-        Topic: {
-            /** Format: uuid */
-            readonly id: string;
-            /** Format: uuid */
-            discipline: string;
-            /** Format: uuid */
-            parent?: string | null;
-            title: string;
-            description?: string;
-            readonly position: number;
-            status?: components["schemas"]["TopicStatusEnum"];
-            /** Format: date-time */
-            readonly last_studied_at: string | null;
-            /** Format: date-time */
-            readonly created_at: string;
-            /** Format: date-time */
-            readonly updated_at: string;
-        };
-        TopicMoveRequest: {
-            /** Format: uuid */
-            parent?: string | null;
-            position: number;
-        };
-        TopicNode: {
-            /** Format: uuid */
-            id: string;
-            title: string;
-            description: string;
-            status: string;
-            position: number;
-            /** Format: uuid */
-            parent: string | null;
-            /** Format: date-time */
-            last_studied_at: string | null;
-            readonly children: unknown;
-        };
-        TopicRequest: {
-            /** Format: uuid */
-            discipline: string;
-            /** Format: uuid */
-            parent?: string | null;
-            title: string;
-            description?: string;
-            status?: components["schemas"]["TopicStatusEnum"];
-        };
+      };
+    };
+  };
+  api_v1_topics_list: {
+    parameters: {
+      query?: {
+        discipline?: string;
+        /** @description Qual campo usar ao ordenar os resultados. */
+        ordering?: string;
+        /** @description Um número de página dentro do conjunto de resultados paginado. */
+        page?: number;
+        /** @description Número de resultados a serem retornados por página. */
+        page_size?: number;
+        parent?: string;
+        /** @description Um termo de busca. */
+        search?: string;
         /**
          * @description * `not_started` - Não iniciado
          *     * `in_progress` - Em andamento
          *     * `done` - Concluído
-         * @enum {string}
          */
-        TopicStatusEnum: "not_started" | "in_progress" | "done";
-        UserProfile: {
-            display_name?: string;
-            timezone?: string;
-            locale?: string;
-            theme?: components["schemas"]["ThemeEnum"];
-            daily_study_goal_minutes?: number;
-            week_starts_on?: number;
-            review_intervals_days?: unknown;
-        };
-        UserProfileRequest: {
-            display_name?: string;
-            timezone?: string;
-            locale?: string;
-            theme?: components["schemas"]["ThemeEnum"];
-            daily_study_goal_minutes?: number;
-            week_starts_on?: number;
-            review_intervals_days?: unknown;
-        };
-    };
-    responses: never;
-    parameters: never;
-    requestBodies: never;
-    headers: never;
-    pathItems: never;
-}
-export type $defs = Record<string, never>;
-export interface operations {
-    api_v1_attempts_list: {
-        parameters: {
-            query?: {
-                discipline?: string;
-                dominant_error?: string;
-                exercise?: string;
-                has_error?: boolean;
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /**
-                 * @description * `solved_alone` - Resolvi sozinho
-                 *     * `solved_with_hint` - Resolvi com dica
-                 *     * `partial` - Parcial
-                 *     * `not_solved` - Não resolvi
-                 */
-                result?: "not_solved" | "partial" | "solved_alone" | "solved_with_hint";
-                rewritten?: boolean;
-                /** @description Um termo de busca. */
-                search?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedAttemptList"];
-                };
-            };
-        };
-    };
-    api_v1_attempts_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este attempt. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Attempt"];
-                };
-            };
-        };
-    };
-    api_v1_attempts_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este attempt. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_attempts_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este attempt. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedAttemptRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedAttemptRequest"];
-                "multipart/form-data": components["schemas"]["PatchedAttemptRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Attempt"];
-                };
-            };
-        };
-    };
-    api_v1_auth_change_password_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ChangePasswordRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ChangePasswordRequest"];
-                "multipart/form-data": components["schemas"]["ChangePasswordRequest"];
-            };
-        };
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_auth_csrf_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        csrfToken?: string;
-                    };
-                };
-            };
-        };
-    };
-    api_v1_auth_login_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["LoginRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["LoginRequest"];
-                "multipart/form-data": components["schemas"]["LoginRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Me"];
-                };
-            };
-        };
-    };
-    api_v1_auth_logout_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_auth_me_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Me"];
-                };
-            };
-        };
-    };
-    api_v1_auth_me_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedMeRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedMeRequest"];
-                "multipart/form-data": components["schemas"]["PatchedMeRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Me"];
-                };
-            };
-        };
-    };
-    api_v1_auth_refresh_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": {
-                        status?: string;
-                    };
-                };
-            };
-        };
-    };
-    api_v1_auth_register_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["RegisterRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["RegisterRequest"];
-                "multipart/form-data": components["schemas"]["RegisterRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Me"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_list: {
-        parameters: {
-            query?: {
-                /** @description false (padrão), true ou all */
-                archived?: string;
-                /**
-                 * @description * `university_course` - Curso universitário
-                 *     * `olympiad` - Olimpíada
-                 *     * `competitive_programming` - Programação competitiva
-                 *     * `software_engineering` - Engenharia de software
-                 *     * `self_study` - Estudo livre
-                 */
-                kind?: "competitive_programming" | "olympiad" | "self_study" | "software_engineering" | "university_course";
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedDisciplineList"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["DisciplineRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["DisciplineRequest"];
-                "multipart/form-data": components["schemas"]["DisciplineRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Discipline"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este discipline. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Discipline"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este discipline. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_disciplines_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este discipline. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedDisciplineRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedDisciplineRequest"];
-                "multipart/form-data": components["schemas"]["PatchedDisciplineRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Discipline"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_archive_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este discipline. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Discipline"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_unarchive_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este discipline. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Discipline"];
-                };
-            };
-        };
-    };
-    api_v1_disciplines_reorder_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ReorderRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ReorderRequest"];
-                "multipart/form-data": components["schemas"]["ReorderRequest"];
-            };
-        };
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_error_types_list: {
-        parameters: {
-            query?: {
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedErrorTypeList"];
-                };
-            };
-        };
-    };
-    api_v1_error_types_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ErrorTypeRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ErrorTypeRequest"];
-                "multipart/form-data": components["schemas"]["ErrorTypeRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ErrorType"];
-                };
-            };
-        };
-    };
-    api_v1_error_types_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este error type. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ErrorType"];
-                };
-            };
-        };
-    };
-    api_v1_error_types_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este error type. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_error_types_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este error type. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedErrorTypeRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedErrorTypeRequest"];
-                "multipart/form-data": components["schemas"]["PatchedErrorTypeRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ErrorType"];
-                };
-            };
-        };
-    };
-    api_v1_exercise_sources_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description * `olympiad` - Olimpíada
-                 *     * `competitive` - Programação competitiva
-                 *     * `book` - Livro
-                 *     * `course` - Curso
-                 *     * `other` - Outra
-                 */
-                kind?: "book" | "competitive" | "course" | "olympiad" | "other";
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedExerciseSourceList"];
-                };
-            };
-        };
-    };
-    api_v1_exercise_sources_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ExerciseSourceRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ExerciseSourceRequest"];
-                "multipart/form-data": components["schemas"]["ExerciseSourceRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExerciseSource"];
-                };
-            };
-        };
-    };
-    api_v1_exercise_sources_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise source. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExerciseSource"];
-                };
-            };
-        };
-    };
-    api_v1_exercise_sources_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise source. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_exercise_sources_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise source. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedExerciseSourceRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseSourceRequest"];
-                "multipart/form-data": components["schemas"]["PatchedExerciseSourceRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ExerciseSource"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_list: {
-        parameters: {
-            query?: {
-                difficulty?: number;
-                discipline?: string;
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-                source?: string;
-                /**
-                 * @description * `new` - Novo
-                 *     * `in_progress` - Em andamento
-                 *     * `solved` - Resolvido
-                 *     * `mastered` - Bem estudado
-                 */
-                state?: "in_progress" | "mastered" | "new" | "solved";
-                tag?: string;
-                topic?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedExerciseList"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ExerciseRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ExerciseRequest"];
-                "multipart/form-data": components["schemas"]["ExerciseRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Exercise"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Exercise"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_exercises_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedExerciseRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseRequest"];
-                "multipart/form-data": components["schemas"]["PatchedExerciseRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Exercise"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_attempts_list: {
-        parameters: {
-            query?: {
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-            };
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedAttemptList"];
-                };
-            };
-        };
-    };
-    api_v1_exercises_attempts_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este exercise. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["AttemptRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["AttemptRequest"];
-                "multipart/form-data": components["schemas"]["AttemptRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["AttemptRecorded"];
-                };
-            };
-        };
-    };
-    api_v1_reviews_list: {
-        parameters: {
-            query?: {
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-                /**
-                 * @description * `active` - Ativo
-                 *     * `suspended` - Suspenso
-                 */
-                status?: "active" | "suspended";
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedReviewItemList"];
-                };
-            };
-        };
-    };
-    api_v1_reviews_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ReviewItem"];
-                };
-            };
-        };
-    };
-    api_v1_reviews_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_reviews_answer_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["ReviewAnswerRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ReviewAnswerRequest"];
-                "multipart/form-data": components["schemas"]["ReviewAnswerRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ReviewOutcome"];
-                };
-            };
-        };
-    };
-    api_v1_reviews_queue_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ReviewQueue"];
-                };
-            };
-        };
-    };
-    api_v1_reviews_schedule_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["ReviewScheduleRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["ReviewScheduleRequest"];
-                "multipart/form-data": components["schemas"]["ReviewScheduleRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ReviewItem"];
-                };
-            };
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["ReviewItem"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_list: {
-        parameters: {
-            query?: {
-                /**
-                 * @description * `reading` - Leitura
-                 *     * `exercises` - Exercícios
-                 *     * `review` - Revisão
-                 *     * `class` - Aula
-                 *     * `mock_exam` - Simulado
-                 *     * `project` - Projeto
-                 *     * `programming` - Programação
-                 */
-                activity_kind?: "class" | "exercises" | "mock_exam" | "programming" | "project" | "reading" | "review";
-                discipline?: string;
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-                started_after?: string;
-                started_before?: string;
-                topic?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedStudySessionList"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["StudySessionRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["StudySessionRequest"];
-                "multipart/form-data": components["schemas"]["StudySessionRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este study session. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este study session. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_study_sessions_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este study session. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedStudySessionRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedStudySessionRequest"];
-                "multipart/form-data": components["schemas"]["PatchedStudySessionRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_active_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_study_sessions_active_finish_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["SessionFinishRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["SessionFinishRequest"];
-                "multipart/form-data": components["schemas"]["SessionFinishRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-        };
-    };
-    api_v1_study_sessions_start_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["SessionStartRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["SessionStartRequest"];
-                "multipart/form-data": components["schemas"]["SessionStartRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["StudySession"];
-                };
-            };
-        };
-    };
-    api_v1_tags_list: {
-        parameters: {
-            query?: {
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                /** @description Um termo de busca. */
-                search?: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedTagList"];
-                };
-            };
-        };
-    };
-    api_v1_tags_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["TagRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["TagRequest"];
-                "multipart/form-data": components["schemas"]["TagRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Tag"];
-                };
-            };
-        };
-    };
-    api_v1_tags_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este tag. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Tag"];
-                };
-            };
-        };
-    };
-    api_v1_tags_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este tag. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_tags_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este tag. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedTagRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedTagRequest"];
-                "multipart/form-data": components["schemas"]["PatchedTagRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Tag"];
-                };
-            };
-        };
-    };
-    api_v1_topics_list: {
-        parameters: {
-            query?: {
-                discipline?: string;
-                /** @description Qual campo usar ao ordenar os resultados. */
-                ordering?: string;
-                /** @description Um número de página dentro do conjunto de resultados paginado. */
-                page?: number;
-                /** @description Número de resultados a serem retornados por página. */
-                page_size?: number;
-                parent?: string;
-                /** @description Um termo de busca. */
-                search?: string;
-                /**
-                 * @description * `not_started` - Não iniciado
-                 *     * `in_progress` - Em andamento
-                 *     * `done` - Concluído
-                 */
-                status?: "done" | "in_progress" | "not_started";
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["PaginatedTopicList"];
-                };
-            };
-        };
-    };
-    api_v1_topics_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["TopicRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["TopicRequest"];
-                "multipart/form-data": components["schemas"]["TopicRequest"];
-            };
-        };
-        responses: {
-            201: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Topic"];
-                };
-            };
-        };
-    };
-    api_v1_topics_retrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este topic. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Topic"];
-                };
-            };
-        };
-    };
-    api_v1_topics_destroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este topic. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description No response body */
-            204: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    api_v1_topics_partial_update: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este topic. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": components["schemas"]["PatchedTopicRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["PatchedTopicRequest"];
-                "multipart/form-data": components["schemas"]["PatchedTopicRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Topic"];
-                };
-            };
-        };
-    };
-    api_v1_topics_move_create: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description Um string UUID que identifica este topic. */
-                id: string;
-            };
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["TopicMoveRequest"];
-                "application/x-www-form-urlencoded": components["schemas"]["TopicMoveRequest"];
-                "multipart/form-data": components["schemas"]["TopicMoveRequest"];
-            };
-        };
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["Topic"];
-                };
-            };
-        };
-    };
-    api_v1_topics_tree_list: {
-        parameters: {
-            query: {
-                discipline: string;
-            };
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            200: {
-                headers: {
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["TopicNode"][];
-                };
-            };
-        };
-    };
+        status?: "done" | "in_progress" | "not_started";
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["PaginatedTopicList"];
+        };
+      };
+    };
+  };
+  api_v1_topics_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["TopicRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["TopicRequest"];
+        "multipart/form-data": components["schemas"]["TopicRequest"];
+      };
+    };
+    responses: {
+      201: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Topic"];
+        };
+      };
+    };
+  };
+  api_v1_topics_retrieve: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este topic. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Topic"];
+        };
+      };
+    };
+  };
+  api_v1_topics_destroy: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este topic. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description No response body */
+      204: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content?: never;
+      };
+    };
+  };
+  api_v1_topics_partial_update: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este topic. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: {
+      content: {
+        "application/json": components["schemas"]["PatchedTopicRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["PatchedTopicRequest"];
+        "multipart/form-data": components["schemas"]["PatchedTopicRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Topic"];
+        };
+      };
+    };
+  };
+  api_v1_topics_move_create: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        /** @description Um string UUID que identifica este topic. */
+        id: string;
+      };
+      cookie?: never;
+    };
+    requestBody: {
+      content: {
+        "application/json": components["schemas"]["TopicMoveRequest"];
+        "application/x-www-form-urlencoded": components["schemas"]["TopicMoveRequest"];
+        "multipart/form-data": components["schemas"]["TopicMoveRequest"];
+      };
+    };
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["Topic"];
+        };
+      };
+    };
+  };
+  api_v1_topics_tree_list: {
+    parameters: {
+      query: {
+        discipline: string;
+      };
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          "application/json": components["schemas"]["TopicNode"][];
+        };
+      };
+    };
+  };
 }

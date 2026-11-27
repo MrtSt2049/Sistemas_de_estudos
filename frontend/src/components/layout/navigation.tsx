@@ -1,6 +1,15 @@
 "use client";
 
-import { BookOpen, LayoutDashboard, ListChecks, NotebookPen, Repeat, Timer, type LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  Code2,
+  LayoutDashboard,
+  ListChecks,
+  NotebookPen,
+  Repeat,
+  Timer,
+  type LucideIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -21,11 +30,15 @@ export const NAV_GROUPS: { title: string; items: NavItem[] }[] = [
       { href: "/review", label: "Revisão", icon: Repeat },
     ],
   },
-  { title: "Estudo", items: [
-    { href: "/disciplines", label: "Disciplinas", icon: BookOpen },
-    { href: "/exercises", label: "Exercícios", icon: ListChecks },
-    { href: "/errors", label: "Caderno de erros", icon: NotebookPen },
-  ] },
+  {
+    title: "Estudo",
+    items: [
+      { href: "/disciplines", label: "Disciplinas", icon: BookOpen },
+      { href: "/exercises", label: "Exercícios", icon: ListChecks },
+      { href: "/errors", label: "Caderno de erros", icon: NotebookPen },
+      { href: "/competitive", label: "Programação competitiva", icon: Code2 },
+    ],
+  },
 ];
 
 export function isActivePath(pathname: string, href: string): boolean {
