@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useController, useForm, type Control } from "react-hook-form";
 import { FormError } from "@/components/feedback/states";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
@@ -50,6 +50,7 @@ export function ExerciseForm({
     setError,
     setValue,
     watch,
+    control,
     formState: { errors },
   } = useForm<ExerciseFormInput>({
     resolver: zodResolver(exerciseSchema),
@@ -67,6 +68,10 @@ export function ExerciseForm({
     resetOptions: { keepDirtyValues: true },
   });
   const topics = useTopicTree(watch("discipline"));
+  // Selects controlados: o valor continua correto quando as opções chegam depois dele.
+  const disciplineField = useControlledSelect(control, "discipline");
+  const sourceField = useControlledSelect(control, "source");
+  const topicField = useControlledSelect(control, "topic");
 
   const mutation = useApiMutation(saveExercise, {
     invalidate: [exerciseKeys.all],
@@ -98,7 +103,13 @@ export function ExerciseForm({
         </Field>
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Disciplina" error={errors.discipline?.message}>
-            <Select {...register("discipline", { onChange: () => setValue("topic", "") })}>
+            <Select
+              {...disciplineField}
+              onChange={(event) => {
+                disciplineField.onChange(event);
+                setValue("topic", "");
+              }}
+            >
               <option value="">Escolha</option>
               {disciplines.data?.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -108,7 +119,7 @@ export function ExerciseForm({
             </Select>
           </Field>
           <Field label="Tópico" error={errors.topic?.message}>
-            <Select {...register("topic")}>
+            <Select {...topicField}>
               <option value="">Nenhum</option>
               {flattenTree(topics.data ?? []).map(({ node, depth }) => (
                 <option key={node.id} value={node.id}>
@@ -118,7 +129,7 @@ export function ExerciseForm({
             </Select>
           </Field>
           <Field label="Fonte" error={errors.source?.message}>
-            <Select {...register("source")}>
+            <Select {...sourceField}>
               <option value="">Escolha</option>
               {sources.data?.map((item) => (
                 <option key={item.id} value={item.id}>
@@ -156,6 +167,13 @@ export function ExerciseForm({
       </form>
     </div>
   );
+}
+
+function useControlledSelect(
+  control: Control<ExerciseFormInput>,
+  name: "discipline" | "source" | "topic",
+) {
+  return useController({ control, name }).field;
 }
 
 function NewSource({ onCreated }: { onCreated: (id: string) => void }) {

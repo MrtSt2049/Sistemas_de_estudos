@@ -8,6 +8,7 @@ import {
   ListChecks,
   NotebookPen,
   Repeat,
+  Settings,
   Timer,
   Target,
   type LucideIcon,
@@ -48,6 +49,10 @@ export const NAV_GROUPS: { title: string; items: NavItem[] }[] = [
   {
     title: "Organização",
     items: [{ href: "/calendar", label: "Calendário", icon: Calendar }],
+  },
+  {
+    title: "Sistema",
+    items: [{ href: "/settings", label: "Configurações", icon: Settings }],
   },
 ];
 

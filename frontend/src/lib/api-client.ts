@@ -74,6 +74,7 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
       const refreshRes = await fetch(`${getBaseUrl()}/auth/refresh/`, {
         method: "POST",
         credentials: "include",
+        headers: { "X-CSRFToken": getCookie("csrftoken") ?? "" },
       });
       if (refreshRes.ok) {
         return apiRequest<T>(path, { ...options, skipRefresh: true });
@@ -94,4 +95,13 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   }
 
   return payload as T;
+}
+
+/**
+ * Baixa um arquivo por navegação (cookies enviados, sem carregar em memória).
+ * A consulta anterior renova a sessão se o token de acesso tiver expirado.
+ */
+export async function startDownload(path: string): Promise<void> {
+  await apiRequest("/auth/me/");
+  window.location.assign(`${getBaseUrl()}${path}`);
 }
