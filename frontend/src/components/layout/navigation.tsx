@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, LayoutDashboard, type LucideIcon } from "lucide-react";
+import { BookOpen, LayoutDashboard, ListChecks, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -14,7 +14,10 @@ interface NavItem {
 // Agrupamento por intenção (DEVELOPMENT_PLAN §3.9.2). Só entram rotas que existem.
 export const NAV_GROUPS: { title: string; items: NavItem[] }[] = [
   { title: "Hoje", items: [{ href: "/dashboard", label: "Dashboard", icon: LayoutDashboard }] },
-  { title: "Estudo", items: [{ href: "/disciplines", label: "Disciplinas", icon: BookOpen }] },
+  { title: "Estudo", items: [
+    { href: "/disciplines", label: "Disciplinas", icon: BookOpen },
+    { href: "/exercises", label: "Exercícios", icon: ListChecks },
+  ] },
 ];
 
 export function isActivePath(pathname: string, href: string): boolean {

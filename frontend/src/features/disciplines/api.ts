@@ -4,7 +4,7 @@ import type { components } from "@/types/api";
 
 type Schemas = components["schemas"];
 export type Discipline = Schemas["Discipline"];
-export type DisciplineKind = Schemas["KindEnum"];
+export type DisciplineKind = Schemas["DisciplineKindEnum"];
 export type DisciplineInput = Schemas["DisciplineRequest"];
 export type Topic = Schemas["Topic"];
 export type TopicNode = Omit<Schemas["TopicNode"], "children"> & { children: TopicNode[] };

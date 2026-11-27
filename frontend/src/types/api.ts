@@ -4,6 +4,42 @@
  */
 
 export interface paths {
+    "/api/v1/attempts/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_attempts_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/attempts/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_attempts_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        delete: operations["api_v1_attempts_destroy"];
+        options?: never;
+        head?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        patch: operations["api_v1_attempts_partial_update"];
+        trace?: never;
+    };
     "/api/v1/auth/change-password/": {
         parameters: {
             query?: never;
@@ -204,6 +240,135 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/error-types/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        get: operations["api_v1_error_types_list"];
+        put?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        post: operations["api_v1_error_types_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/error-types/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        get: operations["api_v1_error_types_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        delete: operations["api_v1_error_types_destroy"];
+        options?: never;
+        head?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        patch: operations["api_v1_error_types_partial_update"];
+        trace?: never;
+    };
+    "/api/v1/exercise-sources/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        get: operations["api_v1_exercise_sources_list"];
+        put?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        post: operations["api_v1_exercise_sources_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/exercise-sources/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        get: operations["api_v1_exercise_sources_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        delete: operations["api_v1_exercise_sources_destroy"];
+        options?: never;
+        head?: never;
+        /** @description Shared behaviour for per-user registries with case-insensitive unique names. */
+        patch: operations["api_v1_exercise_sources_partial_update"];
+        trace?: never;
+    };
+    "/api/v1/exercises/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_exercises_list"];
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_exercises_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/exercises/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_exercises_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        delete: operations["api_v1_exercises_destroy"];
+        options?: never;
+        head?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        patch: operations["api_v1_exercises_partial_update"];
+        trace?: never;
+    };
+    "/api/v1/exercises/{id}/attempts/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_exercises_attempts_list"];
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_exercises_attempts_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/tags/": {
         parameters: {
             query?: never;
@@ -316,6 +481,46 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        Attempt: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            readonly exercise: string;
+            readonly exercise_title: string;
+            /** Format: uuid */
+            readonly discipline: string;
+            /** Format: date-time */
+            attempted_at?: string;
+            result: components["schemas"]["ResultEnum"];
+            duration_seconds?: number | null;
+            hint_level?: number;
+            /** Format: uuid */
+            dominant_error?: string | null;
+            readonly dominant_error_name: string;
+            key_technique?: string;
+            rewritten?: boolean;
+            notes_md?: string;
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        AttemptRecorded: {
+            attempt: components["schemas"]["Attempt"];
+            exercise_state: string;
+        };
+        AttemptRequest: {
+            /** Format: date-time */
+            attempted_at?: string;
+            result: components["schemas"]["ResultEnum"];
+            duration_seconds?: number | null;
+            hint_level?: number;
+            /** Format: uuid */
+            dominant_error?: string | null;
+            key_technique?: string;
+            rewritten?: boolean;
+            notes_md?: string;
+        };
         ChangePasswordRequest: {
             current_password: string;
             new_password: string;
@@ -324,7 +529,7 @@ export interface components {
             /** Format: uuid */
             readonly id: string;
             name: string;
-            kind: components["schemas"]["KindEnum"];
+            kind: components["schemas"]["DisciplineKindEnum"];
             code?: string;
             color?: string;
             position?: number;
@@ -335,13 +540,6 @@ export interface components {
             /** Format: date-time */
             readonly updated_at: string;
         };
-        DisciplineRequest: {
-            name: string;
-            kind: components["schemas"]["KindEnum"];
-            code?: string;
-            color?: string;
-            position?: number;
-        };
         /**
          * @description * `university_course` - Curso universitário
          *     * `olympiad` - Olimpíada
@@ -350,7 +548,94 @@ export interface components {
          *     * `self_study` - Estudo livre
          * @enum {string}
          */
-        KindEnum: "university_course" | "olympiad" | "competitive_programming" | "software_engineering" | "self_study";
+        DisciplineKindEnum: "university_course" | "olympiad" | "competitive_programming" | "software_engineering" | "self_study";
+        DisciplineRequest: {
+            name: string;
+            kind: components["schemas"]["DisciplineKindEnum"];
+            code?: string;
+            color?: string;
+            position?: number;
+        };
+        ErrorType: {
+            /** Format: uuid */
+            readonly id: string;
+            name: string;
+            readonly is_default: boolean;
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        ErrorTypeRequest: {
+            name: string;
+        };
+        Exercise: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            discipline: string;
+            readonly discipline_name: string;
+            /** Format: uuid */
+            topic?: string | null;
+            readonly topic_title: string;
+            /** Format: uuid */
+            source: string;
+            readonly source_name: string;
+            external_ref?: string | null;
+            title: string;
+            statement_md?: string;
+            solution_md?: string;
+            difficulty?: number | null;
+            /** Format: uri */
+            url?: string;
+            readonly state: components["schemas"]["StateEnum"];
+            /** Format: date-time */
+            readonly mastered_at: string | null;
+            tags?: string[];
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        ExerciseRequest: {
+            /** Format: uuid */
+            discipline: string;
+            /** Format: uuid */
+            topic?: string | null;
+            /** Format: uuid */
+            source: string;
+            external_ref?: string | null;
+            title: string;
+            statement_md?: string;
+            solution_md?: string;
+            difficulty?: number | null;
+            /** Format: uri */
+            url?: string;
+            tags?: string[];
+        };
+        ExerciseSource: {
+            /** Format: uuid */
+            readonly id: string;
+            name: string;
+            kind?: components["schemas"]["ExerciseSourceKindEnum"];
+            /** Format: date-time */
+            readonly created_at: string;
+            /** Format: date-time */
+            readonly updated_at: string;
+        };
+        /**
+         * @description * `olympiad` - Olimpíada
+         *     * `competitive` - Programação competitiva
+         *     * `book` - Livro
+         *     * `course` - Curso
+         *     * `other` - Outra
+         * @enum {string}
+         */
+        ExerciseSourceKindEnum: "olympiad" | "competitive" | "book" | "course" | "other";
+        ExerciseSourceRequest: {
+            name: string;
+            kind?: components["schemas"]["ExerciseSourceKindEnum"];
+        };
         LoginRequest: {
             /** Format: email */
             email: string;
@@ -364,6 +649,21 @@ export interface components {
             /** Format: date-time */
             readonly date_joined: string;
             profile: components["schemas"]["UserProfile"];
+        };
+        PaginatedAttemptList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Attempt"][];
         };
         PaginatedDisciplineList: {
             /** @example 123 */
@@ -379,6 +679,51 @@ export interface components {
              */
             previous?: string | null;
             results: components["schemas"]["Discipline"][];
+        };
+        PaginatedErrorTypeList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["ErrorType"][];
+        };
+        PaginatedExerciseList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["Exercise"][];
+        };
+        PaginatedExerciseSourceList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["ExerciseSource"][];
         };
         PaginatedTagList: {
             /** @example 123 */
@@ -410,12 +755,47 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["Topic"][];
         };
+        PatchedAttemptRequest: {
+            /** Format: date-time */
+            attempted_at?: string;
+            result?: components["schemas"]["ResultEnum"];
+            duration_seconds?: number | null;
+            hint_level?: number;
+            /** Format: uuid */
+            dominant_error?: string | null;
+            key_technique?: string;
+            rewritten?: boolean;
+            notes_md?: string;
+        };
         PatchedDisciplineRequest: {
             name?: string;
-            kind?: components["schemas"]["KindEnum"];
+            kind?: components["schemas"]["DisciplineKindEnum"];
             code?: string;
             color?: string;
             position?: number;
+        };
+        PatchedErrorTypeRequest: {
+            name?: string;
+        };
+        PatchedExerciseRequest: {
+            /** Format: uuid */
+            discipline?: string;
+            /** Format: uuid */
+            topic?: string | null;
+            /** Format: uuid */
+            source?: string;
+            external_ref?: string | null;
+            title?: string;
+            statement_md?: string;
+            solution_md?: string;
+            difficulty?: number | null;
+            /** Format: uri */
+            url?: string;
+            tags?: string[];
+        };
+        PatchedExerciseSourceRequest: {
+            name?: string;
+            kind?: components["schemas"]["ExerciseSourceKindEnum"];
         };
         PatchedMeRequest: {
             profile?: components["schemas"]["UserProfileRequest"];
@@ -442,6 +822,22 @@ export interface components {
         ReorderRequest: {
             ids: string[];
         };
+        /**
+         * @description * `solved_alone` - Resolvi sozinho
+         *     * `solved_with_hint` - Resolvi com dica
+         *     * `partial` - Parcial
+         *     * `not_solved` - Não resolvi
+         * @enum {string}
+         */
+        ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
+        /**
+         * @description * `new` - Novo
+         *     * `in_progress` - Em andamento
+         *     * `solved` - Resolvido
+         *     * `mastered` - Bem estudado
+         * @enum {string}
+         */
+        StateEnum: "new" | "in_progress" | "solved" | "mastered";
         /**
          * @description * `not_started` - Não iniciado
          *     * `in_progress` - Em andamento
@@ -541,6 +937,113 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
+    api_v1_attempts_list: {
+        parameters: {
+            query?: {
+                exercise?: string;
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /**
+                 * @description * `solved_alone` - Resolvi sozinho
+                 *     * `solved_with_hint` - Resolvi com dica
+                 *     * `partial` - Parcial
+                 *     * `not_solved` - Não resolvi
+                 */
+                result?: "not_solved" | "partial" | "solved_alone" | "solved_with_hint";
+                /** @description Um termo de busca. */
+                search?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAttemptList"];
+                };
+            };
+        };
+    };
+    api_v1_attempts_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este attempt. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Attempt"];
+                };
+            };
+        };
+    };
+    api_v1_attempts_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este attempt. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_attempts_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este attempt. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedAttemptRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedAttemptRequest"];
+                "multipart/form-data": components["schemas"]["PatchedAttemptRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Attempt"];
+                };
+            };
+        };
+    };
     api_v1_auth_change_password_create: {
         parameters: {
             query?: never;
@@ -918,6 +1421,453 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content?: never;
+            };
+        };
+    };
+    api_v1_error_types_list: {
+        parameters: {
+            query?: {
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /** @description Um termo de busca. */
+                search?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedErrorTypeList"];
+                };
+            };
+        };
+    };
+    api_v1_error_types_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ErrorTypeRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["ErrorTypeRequest"];
+                "multipart/form-data": components["schemas"]["ErrorTypeRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorType"];
+                };
+            };
+        };
+    };
+    api_v1_error_types_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este error type. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorType"];
+                };
+            };
+        };
+    };
+    api_v1_error_types_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este error type. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_error_types_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este error type. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedErrorTypeRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedErrorTypeRequest"];
+                "multipart/form-data": components["schemas"]["PatchedErrorTypeRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ErrorType"];
+                };
+            };
+        };
+    };
+    api_v1_exercise_sources_list: {
+        parameters: {
+            query?: {
+                /**
+                 * @description * `olympiad` - Olimpíada
+                 *     * `competitive` - Programação competitiva
+                 *     * `book` - Livro
+                 *     * `course` - Curso
+                 *     * `other` - Outra
+                 */
+                kind?: "book" | "competitive" | "course" | "olympiad" | "other";
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /** @description Um termo de busca. */
+                search?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedExerciseSourceList"];
+                };
+            };
+        };
+    };
+    api_v1_exercise_sources_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExerciseSourceRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["ExerciseSourceRequest"];
+                "multipart/form-data": components["schemas"]["ExerciseSourceRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExerciseSource"];
+                };
+            };
+        };
+    };
+    api_v1_exercise_sources_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise source. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExerciseSource"];
+                };
+            };
+        };
+    };
+    api_v1_exercise_sources_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise source. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_exercise_sources_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise source. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedExerciseSourceRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseSourceRequest"];
+                "multipart/form-data": components["schemas"]["PatchedExerciseSourceRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ExerciseSource"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_list: {
+        parameters: {
+            query?: {
+                difficulty?: number;
+                discipline?: string;
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /** @description Um termo de busca. */
+                search?: string;
+                source?: string;
+                /**
+                 * @description * `new` - Novo
+                 *     * `in_progress` - Em andamento
+                 *     * `solved` - Resolvido
+                 *     * `mastered` - Bem estudado
+                 */
+                state?: "in_progress" | "mastered" | "new" | "solved";
+                tag?: string;
+                topic?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedExerciseList"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ExerciseRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["ExerciseRequest"];
+                "multipart/form-data": components["schemas"]["ExerciseRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Exercise"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Exercise"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_exercises_partial_update: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["PatchedExerciseRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["PatchedExerciseRequest"];
+                "multipart/form-data": components["schemas"]["PatchedExerciseRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Exercise"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_attempts_list: {
+        parameters: {
+            query?: {
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+            };
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedAttemptList"];
+                };
+            };
+        };
+    };
+    api_v1_exercises_attempts_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description Um string UUID que identifica este exercise. */
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["AttemptRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["AttemptRequest"];
+                "multipart/form-data": components["schemas"]["AttemptRequest"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["AttemptRecorded"];
+                };
             };
         };
     };
