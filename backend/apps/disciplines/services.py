@@ -4,7 +4,7 @@ from typing import Any
 from uuid import UUID
 
 from django.db import transaction
-from django.db.models import ProtectedError
+from django.db.models import ProtectedError, RestrictedError
 
 from apps.accounts.models import User
 from apps.core import clock
@@ -84,7 +84,7 @@ def delete_discipline(*, discipline: Discipline) -> None:
     try:
         with transaction.atomic():
             discipline.delete()
-    except ProtectedError as exc:
+    except (ProtectedError, RestrictedError) as exc:
         raise ConflictError(
             "A disciplina possui registros dependentes (ex.: exercícios). "
             "Arquive-a ou remova os dependentes antes.",

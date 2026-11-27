@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django_filters",
     "drf_spectacular",
     # Local apps
+    "apps.exercises",
     "apps.core",
     "apps.accounts",
     "apps.disciplines",
