@@ -19,6 +19,8 @@ FROM base AS production
 COPY requirements/ requirements/
 RUN pip install --no-cache-dir -r requirements/prod.txt
 COPY . .
+# Estáticos do admin, servidos pelo WhiteNoise. Os valores abaixo valem só neste passo.
+RUN DJANGO_SECRET_KEY=build-only DJANGO_ALLOWED_HOSTS=build.invalid     DATABASE_URL=postgresql://build:build@localhost:5432/build     DJANGO_SETTINGS_MODULE=config.settings.production     python manage.py collectstatic --noinput
 RUN chown -R app:app /app
 USER app
 EXPOSE 8000

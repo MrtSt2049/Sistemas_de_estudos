@@ -1,6 +1,7 @@
 """Thin HTTP views for cookie-based JWT authentication and user profile (RF088–RF093)."""
 
 import contextlib
+from typing import Any
 
 from django.conf import settings
 from django.contrib.auth import authenticate
@@ -16,6 +17,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.tokens import RefreshToken
 
+from apps.accounts.authentication import enforce_csrf
 from apps.accounts.cookies import clear_auth_cookies, set_auth_cookies
 from apps.accounts.models import User, UserProfile
 from apps.accounts.serializers import (
@@ -25,6 +27,22 @@ from apps.accounts.serializers import (
     RegisterSerializer,
 )
 from apps.accounts.services import change_user_password, create_user_with_profile
+
+
+class _CsrfProtectedView(APIView):
+    """Anonymous auth endpoints still require the CSRF token.
+
+    DRF exempts its views from Django's CSRF middleware and only enforces it
+    during authentication, which these endpoints disable.
+    """
+
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    def initial(self, request: Request, *args: Any, **kwargs: Any) -> None:
+        super().initial(request, *args, **kwargs)
+        if request.method not in ("GET", "HEAD", "OPTIONS"):
+            enforce_csrf(request)
 
 
 class CsrfView(APIView):
@@ -38,9 +56,7 @@ class CsrfView(APIView):
         return Response({"csrfToken": get_token(request)})
 
 
-class LoginView(APIView):
-    permission_classes = [AllowAny]
-    authentication_classes = []
+class LoginView(_CsrfProtectedView):
     throttle_classes = [ScopedRateThrottle]
     throttle_scope = "login"
 
@@ -67,9 +83,7 @@ class LoginView(APIView):
         return response
 
 
-class RefreshView(APIView):
-    permission_classes = [AllowAny]
-    authentication_classes = []
+class RefreshView(_CsrfProtectedView):
 
     @extend_schema(
         request=None,
@@ -112,9 +126,7 @@ class LogoutView(APIView):
         return response
 
 
-class RegisterView(APIView):
-    permission_classes = [AllowAny]
-    authentication_classes = []
+class RegisterView(_CsrfProtectedView):
 
     @extend_schema(request=RegisterSerializer, responses={201: MeSerializer})
     def post(self, request: Request) -> Response:

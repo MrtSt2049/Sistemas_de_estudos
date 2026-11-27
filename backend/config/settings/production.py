@@ -6,6 +6,12 @@ DEBUG = False
 ENABLE_API_DOCS = False
 
 SECURE_SSL_REDIRECT = True
+# Sondas do contêiner chegam por HTTP, sem passar pelo proxy.
+SECURE_REDIRECT_EXEMPT = [r"^healthz$", r"^readyz$"]
+CONTENT_SECURITY_POLICY = (
+    "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; "
+    "object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+)
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True

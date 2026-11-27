@@ -56,6 +56,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "apps.core.security_headers.ContentSecurityPolicyMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "apps.core.middleware.RequestIdMiddleware",
     "corsheaders.middleware.CorsMiddleware",
@@ -134,6 +135,8 @@ AUTH_COOKIE_ACCESS = "sp_access"
 AUTH_COOKIE_REFRESH = "sp_refresh"
 AUTH_COOKIE_SECURE = True
 AUTH_COOKIE_SAMESITE = "Lax"
+# O frontend (app.<domínio>) precisa ler o token emitido por api.<domínio>.
+CSRF_COOKIE_DOMAIN: str | None = COOKIE_DOMAIN
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = "Lax"
 ALLOW_REGISTRATION = env.bool("ALLOW_REGISTRATION")
@@ -150,6 +153,9 @@ SIMPLE_JWT = {
 }
 
 REST_FRAMEWORK = {
+    # Proxies confiáveis à frente do Django. Com 0, X-Forwarded-For é ignorado e
+    # o limite de login não pode ser contornado com um cabeçalho forjado.
+    "NUM_PROXIES": env.int("NUM_PROXIES", default=0),
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "apps.accounts.authentication.CookieJWTAuthentication",
     ],
@@ -168,7 +174,7 @@ REST_FRAMEWORK = {
         "rest_framework.throttling.UserRateThrottle",
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "user": "120/min",
+        "user": env.str("API_THROTTLE_RATE", default="120/min"),
         "login": "5/min",
     },
 }
