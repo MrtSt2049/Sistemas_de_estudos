@@ -15,6 +15,8 @@ import { AttemptForm } from "@/features/exercises/components/AttemptForm";
 import { ExerciseForm } from "@/features/exercises/components/ExerciseForm";
 import { exerciseKeys, useExercise, useExerciseAttempts } from "@/features/exercises/queries";
 import { RESULT_LABELS, STATE_LABELS, STATE_TONES } from "@/features/exercises/schemas";
+import { scheduleReview } from "@/features/reviews/api";
+import { reviewKeys } from "@/features/reviews/queries";
 import { useApiMutation } from "@/lib/use-api-mutation";
 
 export default function ExercisePage() {
@@ -31,6 +33,10 @@ export default function ExercisePage() {
     invalidate: [],
     success: "Exercício excluído.",
     onSuccess: () => router.replace("/exercises"),
+  });
+  const schedule = useApiMutation(scheduleReview, {
+    invalidate: [reviewKeys.all],
+    success: "Exercício na fila de revisão.",
   });
   const removeAttempt = useApiMutation(deleteAttempt, {
     invalidate: [exerciseKeys.all],
@@ -57,6 +63,13 @@ export default function ExercisePage() {
             <Link href="/exercises" className={buttonClasses("secondary")}>
               Voltar
             </Link>
+            <Button
+              variant="secondary"
+              pending={schedule.isPending}
+              onClick={() => schedule.mutate({ exercise: id })}
+            >
+              Agendar revisão
+            </Button>
             <Button variant="secondary" onClick={() => setEditing(true)}>
               Editar
             </Button>

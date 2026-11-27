@@ -16,7 +16,7 @@ class ThemeChoice(models.TextChoices):
 
 
 def default_review_intervals() -> list[int]:
-    return [1, 3, 10, 30]
+    return [3, 7, 21]  # D-04: D+3, D+7, D+21
 
 
 class UserManager(BaseUserManager["User"]):

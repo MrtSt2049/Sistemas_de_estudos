@@ -369,6 +369,92 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/reviews/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_reviews_list"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reviews/{id}/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_reviews_retrieve"];
+        put?: never;
+        post?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        delete: operations["api_v1_reviews_destroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reviews/{id}/answer/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_reviews_answer_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reviews/queue/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        get: operations["api_v1_reviews_queue_retrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/reviews/schedule/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** @description Filter queryset by authenticated user and inject owner on creation. */
+        post: operations["api_v1_reviews_schedule_create"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/study-sessions/": {
         parameters: {
             query?: never;
@@ -828,6 +914,21 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["ExerciseSource"][];
         };
+        PaginatedReviewItemList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["ReviewItem"][];
+        };
         PaginatedStudySessionList: {
             /** @example 123 */
             count: number;
@@ -944,8 +1045,16 @@ export interface components {
             parent?: string | null;
             title?: string;
             description?: string;
-            status?: components["schemas"]["StatusEnum"];
+            status?: components["schemas"]["TopicStatusEnum"];
         };
+        /**
+         * @description * `again` - Errei
+         *     * `hard` - Difícil
+         *     * `good` - Bom
+         *     * `easy` - Fácil
+         * @enum {string}
+         */
+        RatingEnum: "again" | "hard" | "good" | "easy";
         RegisterRequest: {
             /** Format: email */
             email: string;
@@ -964,6 +1073,55 @@ export interface components {
          * @enum {string}
          */
         ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
+        ReviewAnswerRequest: {
+            rating: components["schemas"]["RatingEnum"];
+            /** Format: uuid */
+            idempotency_key: string;
+        };
+        ReviewItem: {
+            /** Format: uuid */
+            readonly id: string;
+            /** Format: uuid */
+            readonly exercise: string | null;
+            /** Format: uuid */
+            readonly topic: string | null;
+            readonly title: string;
+            readonly discipline_name: string;
+            readonly statement_md: string;
+            readonly solution_md: string;
+            readonly step: number;
+            /** Format: date */
+            readonly due_on: string;
+            readonly status: components["schemas"]["ReviewItemStatusEnum"];
+            /** Format: date-time */
+            readonly last_reviewed_at: string | null;
+        };
+        /**
+         * @description * `active` - Ativo
+         *     * `suspended` - Suspenso
+         * @enum {string}
+         */
+        ReviewItemStatusEnum: "active" | "suspended";
+        ReviewOutcome: {
+            /** Format: uuid */
+            item: string;
+            rating: string;
+            step: number;
+            /** Format: date */
+            due_on: string;
+        };
+        ReviewQueue: {
+            /** Format: date */
+            today: string;
+            count: number;
+            results: components["schemas"]["ReviewItem"][];
+        };
+        ReviewScheduleRequest: {
+            /** Format: uuid */
+            exercise?: string;
+            /** Format: uuid */
+            topic?: string;
+        };
         SessionFinishRequest: {
             focus_rating?: number | null;
             energy_rating?: number | null;
@@ -984,13 +1142,6 @@ export interface components {
          * @enum {string}
          */
         StateEnum: "new" | "in_progress" | "solved" | "mastered";
-        /**
-         * @description * `not_started` - Não iniciado
-         *     * `in_progress` - Em andamento
-         *     * `done` - Concluído
-         * @enum {string}
-         */
-        StatusEnum: "not_started" | "in_progress" | "done";
         StudySession: {
             /** Format: uuid */
             readonly id: string;
@@ -1060,7 +1211,7 @@ export interface components {
             title: string;
             description?: string;
             readonly position: number;
-            status?: components["schemas"]["StatusEnum"];
+            status?: components["schemas"]["TopicStatusEnum"];
             /** Format: date-time */
             readonly last_studied_at: string | null;
             /** Format: date-time */
@@ -1093,8 +1244,15 @@ export interface components {
             parent?: string | null;
             title: string;
             description?: string;
-            status?: components["schemas"]["StatusEnum"];
+            status?: components["schemas"]["TopicStatusEnum"];
         };
+        /**
+         * @description * `not_started` - Não iniciado
+         *     * `in_progress` - Em andamento
+         *     * `done` - Concluído
+         * @enum {string}
+         */
+        TopicStatusEnum: "not_started" | "in_progress" | "done";
         UserProfile: {
             display_name?: string;
             timezone?: string;
@@ -2056,6 +2214,159 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["AttemptRecorded"];
+                };
+            };
+        };
+    };
+    api_v1_reviews_list: {
+        parameters: {
+            query?: {
+                /** @description Qual campo usar ao ordenar os resultados. */
+                ordering?: string;
+                /** @description Um número de página dentro do conjunto de resultados paginado. */
+                page?: number;
+                /** @description Número de resultados a serem retornados por página. */
+                page_size?: number;
+                /** @description Um termo de busca. */
+                search?: string;
+                /**
+                 * @description * `active` - Ativo
+                 *     * `suspended` - Suspenso
+                 */
+                status?: "active" | "suspended";
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedReviewItemList"];
+                };
+            };
+        };
+    };
+    api_v1_reviews_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewItem"];
+                };
+            };
+        };
+    };
+    api_v1_reviews_destroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No response body */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    api_v1_reviews_answer_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ReviewAnswerRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["ReviewAnswerRequest"];
+                "multipart/form-data": components["schemas"]["ReviewAnswerRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewOutcome"];
+                };
+            };
+        };
+    };
+    api_v1_reviews_queue_retrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewQueue"];
+                };
+            };
+        };
+    };
+    api_v1_reviews_schedule_create: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["ReviewScheduleRequest"];
+                "application/x-www-form-urlencoded": components["schemas"]["ReviewScheduleRequest"];
+                "multipart/form-data": components["schemas"]["ReviewScheduleRequest"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewItem"];
+                };
+            };
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ReviewItem"];
                 };
             };
         };

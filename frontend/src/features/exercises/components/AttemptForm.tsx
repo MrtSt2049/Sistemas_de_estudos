@@ -14,6 +14,7 @@ import {
   toAttemptPayload,
   type AttemptFormInput,
 } from "@/features/exercises/schemas";
+import { reviewKeys } from "@/features/reviews/queries";
 import { applyApiError } from "@/lib/forms";
 import { useApiMutation } from "@/lib/use-api-mutation";
 
@@ -68,7 +69,7 @@ export function AttemptForm({ exerciseId }: { exerciseId: string }) {
   }, [exerciseId, reset, watch]);
 
   const mutation = useApiMutation(recordAttempt, {
-    invalidate: [exerciseKeys.all],
+    invalidate: [exerciseKeys.all, reviewKeys.all],
     success: "Tentativa registrada.",
     toastError: false,
     onSuccess: () => {

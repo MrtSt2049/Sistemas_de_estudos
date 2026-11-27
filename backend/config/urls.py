@@ -13,6 +13,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/v1/auth/", include("apps.accounts.urls")),
     path("api/v1/", include("apps.core.urls")),
+    path("api/v1/", include("apps.reviews.urls")),
     path("api/v1/", include("apps.studysessions.urls")),
     path("api/v1/", include("apps.exercises.urls")),
     path("api/v1/", include("apps.disciplines.urls")),
