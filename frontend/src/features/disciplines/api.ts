@@ -55,5 +55,4 @@ export const moveTopic = ({
   position: number;
 }) => apiRequest<Topic>(`/topics/${id}/move/`, { method: "POST", body: { parent, position } });
 
-export const deleteTopic = (id: string) =>
-  apiRequest<void>(`/topics/${id}/`, { method: "DELETE" });
+export const deleteTopic = (id: string) => apiRequest<void>(`/topics/${id}/`, { method: "DELETE" });

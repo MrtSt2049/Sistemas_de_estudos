@@ -1,7 +1,6 @@
 import { ApiError, isApiErrorEnvelope } from "@/lib/errors";
 
-const CLIENT_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000/api/v1";
+const CLIENT_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000/api/v1";
 
 function getBaseUrl(): string {
   if (typeof window === "undefined") {
@@ -12,9 +11,7 @@ function getBaseUrl(): string {
 
 function getCookie(name: string): string | null {
   if (typeof document === "undefined") return null;
-  const match = document.cookie
-    .split("; ")
-    .find((row) => row.startsWith(`${name}=`));
+  const match = document.cookie.split("; ").find((row) => row.startsWith(`${name}=`));
   return match ? decodeURIComponent(match.split("=").slice(1).join("=")) : null;
 }
 
@@ -35,10 +32,7 @@ async function parseJsonSafe(response: Response): Promise<unknown> {
   }
 }
 
-export async function apiRequest<T>(
-  path: string,
-  options: RequestOptions = {},
-): Promise<T> {
+export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { body, headers, skipRefresh = false, method = "GET", ...rest } = options;
   const normalizedMethod = method.toUpperCase();
   const reqHeaders = new Headers(headers);

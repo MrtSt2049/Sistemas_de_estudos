@@ -15,9 +15,7 @@ export default function GlobalError({
       <p className="max-w-md text-sm text-muted">
         Não foi possível carregar esta tela. Tente novamente.
       </p>
-      {error.digest && (
-        <p className="font-mono text-xs text-muted">ID: {error.digest}</p>
-      )}
+      {error.digest && <p className="font-mono text-xs text-muted">ID: {error.digest}</p>}
       <Button onClick={reset}>Tentar de novo</Button>
     </div>
   );

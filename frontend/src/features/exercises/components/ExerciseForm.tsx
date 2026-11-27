@@ -8,7 +8,12 @@ import { Button } from "@/components/ui/button";
 import { Field, Input, Select, Textarea } from "@/components/ui/field";
 import { useDisciplines, useTopicTree } from "@/features/disciplines/queries";
 import { flattenTree } from "@/features/disciplines/utils";
-import { createSource, saveExercise, type Exercise, type SourceKind } from "@/features/exercises/api";
+import {
+  createSource,
+  saveExercise,
+  type Exercise,
+  type SourceKind,
+} from "@/features/exercises/api";
 import { exerciseKeys, useSources } from "@/features/exercises/queries";
 import {
   exerciseSchema,

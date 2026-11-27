@@ -1,5 +1,10 @@
 import { z } from "zod";
-import type { AttemptInput, AttemptResult, ExerciseState, SourceKind } from "@/features/exercises/api";
+import type {
+  AttemptInput,
+  AttemptResult,
+  ExerciseState,
+  SourceKind,
+} from "@/features/exercises/api";
 import type { BadgeTone } from "@/components/ui/card";
 
 export const STATE_LABELS: Record<ExerciseState, string> = {

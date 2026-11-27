@@ -40,7 +40,9 @@ export default function ReviewPage() {
           }
         />
       )}
-      {items && items.length > 0 && <ReviewSession items={items} onRestart={() => setItems(null)} />}
+      {items && items.length > 0 && (
+        <ReviewSession items={items} onRestart={() => setItems(null)} />
+      )}
     </section>
   );
 }
@@ -96,7 +98,9 @@ function ReviewSession({ items, onRestart }: { items: ReviewItem[]; onRestart: (
           {RATINGS.map(({ rating, label }) => (
             <li key={rating}>
               {label}:{" "}
-              <span className="font-mono">{summary.filter((value) => value === rating).length}</span>
+              <span className="font-mono">
+                {summary.filter((value) => value === rating).length}
+              </span>
             </li>
           ))}
         </ul>

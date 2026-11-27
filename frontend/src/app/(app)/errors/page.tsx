@@ -149,9 +149,7 @@ function NotebookEntry({ attempt }: { attempt: Attempt }) {
           className="size-4"
           checked={attempt.rewritten ?? false}
           disabled={update.isPending}
-          onChange={(e) =>
-            update.mutate({ id: attempt.id, data: { rewritten: e.target.checked } })
-          }
+          onChange={(e) => update.mutate({ id: attempt.id, data: { rewritten: e.target.checked } })}
         />
         Solução reescrita limpa
       </label>

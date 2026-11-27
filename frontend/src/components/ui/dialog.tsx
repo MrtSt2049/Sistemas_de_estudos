@@ -55,12 +55,7 @@ interface ConfirmDialogProps {
 }
 
 /** Confirmação de ações destrutivas (DEVELOPMENT_PLAN §3.9.6). */
-export function ConfirmDialog({
-  confirmLabel,
-  pending,
-  onConfirm,
-  ...props
-}: ConfirmDialogProps) {
+export function ConfirmDialog({ confirmLabel, pending, onConfirm, ...props }: ConfirmDialogProps) {
   return (
     <Dialog {...props}>
       <div className="flex flex-wrap justify-end gap-2">

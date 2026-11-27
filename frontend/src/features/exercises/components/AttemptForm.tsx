@@ -31,9 +31,9 @@ const draftKey = (exerciseId: string) => `sp-attempt-draft:${exerciseId}`;
 
 function readDraft(exerciseId: string): Partial<AttemptFormInput> {
   try {
-    return JSON.parse(window.localStorage.getItem(draftKey(exerciseId)) ?? "{}") as Partial<
-      AttemptFormInput
-    >;
+    return JSON.parse(
+      window.localStorage.getItem(draftKey(exerciseId)) ?? "{}",
+    ) as Partial<AttemptFormInput>;
   } catch {
     return {};
   }

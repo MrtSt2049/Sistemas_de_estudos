@@ -32,7 +32,8 @@ export class ApiError extends Error {
     details?: Record<string, string[]>;
     requestId?: string;
   }) {
-    const mapped = ERROR_MESSAGES[params.code] ?? params.message ?? "Erro ao comunicar com o servidor.";
+    const mapped =
+      ERROR_MESSAGES[params.code] ?? params.message ?? "Erro ao comunicar com o servidor.";
     super(mapped);
     this.name = "ApiError";
     this.status = params.status;

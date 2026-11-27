@@ -57,7 +57,11 @@ export function SessionTimer() {
       <Dialog open={dialog === "start"} onOpenChange={() => setDialog(null)} title="Iniciar sessão">
         <StartForm onDone={() => setDialog(null)} />
       </Dialog>
-      <Dialog open={dialog === "finish"} onOpenChange={() => setDialog(null)} title="Encerrar sessão">
+      <Dialog
+        open={dialog === "finish"}
+        onOpenChange={() => setDialog(null)}
+        title="Encerrar sessão"
+      >
         <FinishForm onDone={() => setDialog(null)} />
       </Dialog>
     </>

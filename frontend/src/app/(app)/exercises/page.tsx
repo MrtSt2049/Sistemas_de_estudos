@@ -68,7 +68,10 @@ function ExerciseList() {
           />
         </Field>
         <Field label="Disciplina">
-          <Select value={params.discipline} onChange={(e) => setFilter("discipline", e.target.value)}>
+          <Select
+            value={params.discipline}
+            onChange={(e) => setFilter("discipline", e.target.value)}
+          >
             <option value="">Todas</option>
             {disciplines.data?.map((item) => (
               <option key={item.id} value={item.id}>
@@ -98,7 +101,10 @@ function ExerciseList() {
           </Select>
         </Field>
         <Field label="Dificuldade">
-          <Select value={params.difficulty} onChange={(e) => setFilter("difficulty", e.target.value)}>
+          <Select
+            value={params.difficulty}
+            onChange={(e) => setFilter("difficulty", e.target.value)}
+          >
             <option value="">Todas</option>
             {[1, 2, 3, 4, 5].map((level) => (
               <option key={level} value={level}>

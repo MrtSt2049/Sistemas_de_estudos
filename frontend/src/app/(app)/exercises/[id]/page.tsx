@@ -55,7 +55,12 @@ export default function ExercisePage() {
     <section className="mx-auto max-w-3xl space-y-7">
       <PageHeader
         title={exercise.title}
-        description={[exercise.discipline_name, exercise.topic_title, exercise.source_name, exercise.external_ref]
+        description={[
+          exercise.discipline_name,
+          exercise.topic_title,
+          exercise.source_name,
+          exercise.external_ref,
+        ]
           .filter(Boolean)
           .join(" · ")}
         actions={

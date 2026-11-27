@@ -7,7 +7,10 @@ export function Skeleton({ rows = 3 }: { rows?: number }) {
   return (
     <div role="status" aria-label="Carregando" className="space-y-3">
       {Array.from({ length: rows }, (_, index) => (
-        <div key={index} className="h-14 animate-pulse rounded-card border border-line bg-surface" />
+        <div
+          key={index}
+          className="h-14 animate-pulse rounded-card border border-line bg-surface"
+        />
       ))}
     </div>
   );
