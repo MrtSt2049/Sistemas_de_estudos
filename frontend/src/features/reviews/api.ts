@@ -5,7 +5,7 @@ type Schemas = components["schemas"];
 export type ReviewItem = Schemas["ReviewItem"];
 export type ReviewQueue = Schemas["ReviewQueue"];
 export type ReviewOutcome = Schemas["ReviewOutcome"];
-export type ReviewRating = Schemas["RatingEnum"];
+export type ReviewRating = Schemas["ReviewRatingEnum"];
 
 export const getReviewQueue = () => apiRequest<ReviewQueue>("/reviews/queue/");
 

@@ -1047,14 +1047,6 @@ export interface components {
             description?: string;
             status?: components["schemas"]["TopicStatusEnum"];
         };
-        /**
-         * @description * `again` - Errei
-         *     * `hard` - Difícil
-         *     * `good` - Bom
-         *     * `easy` - Fácil
-         * @enum {string}
-         */
-        RatingEnum: "again" | "hard" | "good" | "easy";
         RegisterRequest: {
             /** Format: email */
             email: string;
@@ -1074,7 +1066,7 @@ export interface components {
          */
         ResultEnum: "solved_alone" | "solved_with_hint" | "partial" | "not_solved";
         ReviewAnswerRequest: {
-            rating: components["schemas"]["RatingEnum"];
+            rating: components["schemas"]["ReviewRatingEnum"];
             /** Format: uuid */
             idempotency_key: string;
         };
@@ -1116,6 +1108,14 @@ export interface components {
             count: number;
             results: components["schemas"]["ReviewItem"][];
         };
+        /**
+         * @description * `again` - Errei
+         *     * `hard` - Difícil
+         *     * `good` - Bom
+         *     * `easy` - Fácil
+         * @enum {string}
+         */
+        ReviewRatingEnum: "again" | "hard" | "good" | "easy";
         ReviewScheduleRequest: {
             /** Format: uuid */
             exercise?: string;

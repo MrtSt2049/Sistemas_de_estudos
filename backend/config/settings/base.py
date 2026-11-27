@@ -175,6 +175,12 @@ SPECTACULAR_SETTINGS = {
     "VERSION": "0.1.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "COMPONENT_SPLIT_REQUEST": True,
+    # Nomes estáveis: sem isso, um novo campo "status" renomeia enums já usados no frontend.
+    "ENUM_NAME_OVERRIDES": {
+        "TopicStatusEnum": "apps.curriculum.models.TopicStatus.choices",
+        "ReviewItemStatusEnum": "apps.reviews.models.ReviewStatus.choices",
+        "ReviewRatingEnum": "apps.reviews.models.ReviewRating.choices",
+    },
 }
 
 ENABLE_API_DOCS = False

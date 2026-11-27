@@ -8,7 +8,7 @@ export type DisciplineKind = Schemas["DisciplineKindEnum"];
 export type DisciplineInput = Schemas["DisciplineRequest"];
 export type Topic = Schemas["Topic"];
 export type TopicNode = Omit<Schemas["TopicNode"], "children"> & { children: TopicNode[] };
-export type TopicStatus = Schemas["StatusEnum"];
+export type TopicStatus = Schemas["TopicStatusEnum"];
 
 export const listDisciplines = (archived: boolean) =>
   fetchAll<Discipline>("/disciplines/", { archived });
