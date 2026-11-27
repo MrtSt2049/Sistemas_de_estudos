@@ -1,6 +1,6 @@
 "use client";
 
-import { BookOpen, LayoutDashboard, ListChecks, Timer, type LucideIcon } from "lucide-react";
+import { BookOpen, LayoutDashboard, ListChecks, NotebookPen, Timer, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -23,6 +23,7 @@ export const NAV_GROUPS: { title: string; items: NavItem[] }[] = [
   { title: "Estudo", items: [
     { href: "/disciplines", label: "Disciplinas", icon: BookOpen },
     { href: "/exercises", label: "Exercícios", icon: ListChecks },
+    { href: "/errors", label: "Caderno de erros", icon: NotebookPen },
   ] },
 ];
 

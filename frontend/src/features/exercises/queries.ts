@@ -3,6 +3,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import {
   getExercise,
+  listAttempts,
   listErrorTypes,
   listExerciseAttempts,
   listExercises,
@@ -17,6 +18,8 @@ export const exerciseKeys = {
   attempts: (id: string) => ["exercises", "attempts", id] as const,
   sources: ["exercise-sources"] as const,
   errorTypes: ["error-types"] as const,
+  // Sob "exercises" para que registrar ou excluir tentativas atualize o caderno.
+  notebook: (params: QueryParams) => ["exercises", "notebook", params] as const,
 };
 
 export function useExercises(params: QueryParams) {
@@ -41,4 +44,12 @@ export function useSources() {
 
 export function useErrorTypes() {
   return useQuery({ queryKey: exerciseKeys.errorTypes, queryFn: listErrorTypes });
+}
+
+export function useErrorNotebook(params: QueryParams) {
+  return useQuery({
+    queryKey: exerciseKeys.notebook(params),
+    queryFn: () => listAttempts(params),
+    placeholderData: keepPreviousData,
+  });
 }

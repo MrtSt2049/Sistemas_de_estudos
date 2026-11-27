@@ -42,5 +42,16 @@ export const recordAttempt = ({ exerciseId, data }: { exerciseId: string; data: 
     body: data,
   });
 
+export const listAttempts = (params: QueryParams) =>
+  apiRequest<Page<Attempt>>(`/attempts/${toQuery(params)}`);
+
+export const updateAttempt = ({
+  id,
+  data,
+}: {
+  id: string;
+  data: Schemas["PatchedAttemptRequest"];
+}) => apiRequest<Attempt>(`/attempts/${id}/`, { method: "PATCH", body: data });
+
 export const deleteAttempt = (id: string) =>
   apiRequest<void>(`/attempts/${id}/`, { method: "DELETE" });

@@ -1125,7 +1125,10 @@ export interface operations {
     api_v1_attempts_list: {
         parameters: {
             query?: {
+                discipline?: string;
+                dominant_error?: string;
                 exercise?: string;
+                has_error?: boolean;
                 /** @description Qual campo usar ao ordenar os resultados. */
                 ordering?: string;
                 /** @description Um número de página dentro do conjunto de resultados paginado. */
@@ -1139,6 +1142,7 @@ export interface operations {
                  *     * `not_solved` - Não resolvi
                  */
                 result?: "not_solved" | "partial" | "solved_alone" | "solved_with_hint";
+                rewritten?: boolean;
                 /** @description Um termo de busca. */
                 search?: string;
             };

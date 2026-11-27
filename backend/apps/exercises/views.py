@@ -14,6 +14,7 @@ from apps.core.mixins import OwnedQuerysetMixin
 from apps.exercises import services
 from apps.exercises.models import (
     Attempt,
+    AttemptResult,
     ErrorType,
     Exercise,
     ExerciseSource,
@@ -132,6 +133,17 @@ class ExerciseViewSet(OwnedQuerysetMixin, viewsets.ModelViewSet[Exercise]):
         return Response(body, status=status.HTTP_201_CREATED)
 
 
+class AttemptFilter(django_filters.FilterSet):
+    exercise = django_filters.UUIDFilter(field_name="exercise_id")
+    discipline = django_filters.UUIDFilter(field_name="exercise__discipline_id")
+    dominant_error = django_filters.UUIDFilter(field_name="dominant_error_id")
+    result = django_filters.ChoiceFilter(choices=AttemptResult.choices)
+    has_error = django_filters.BooleanFilter(
+        field_name="dominant_error", lookup_expr="isnull", exclude=True
+    )
+    rewritten = django_filters.BooleanFilter()
+
+
 class AttemptViewSet(
     OwnedQuerysetMixin,
     mixins.ListModelMixin,
@@ -143,7 +155,7 @@ class AttemptViewSet(
     queryset = Attempt.objects.select_related("exercise", "dominant_error")
     serializer_class = AttemptSerializer
     http_method_names = ["get", "patch", "delete", "head", "options"]
-    filterset_fields = ["exercise", "result"]
+    filterset_class = AttemptFilter
     ordering_fields = ["attempted_at"]
 
     def perform_update(self, serializer: Any) -> None:
