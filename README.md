@@ -2,7 +2,7 @@
 
 Plataforma web pessoal de estudos, organização acadêmica e produtividade: disciplinas, tópicos, exercícios, revisão espaçada, anotações com matemática, notas, calendário, metas e estatísticas, em um só lugar.
 
-> **Status: em desenvolvimento (endurecimento F5 / pré-`v1.0.0`).** A fundação (F0) e o núcleo de estudo, revisão espaçada, programação competitiva (Codeforces read-only sob demanda, `ADR-015`), planejamento/metas e endurecimento/exportação (F1–F5) estão implementados na branch de trabalho; a promoção final para `v1.0.0` depende do fechamento dos portões operacionais e de produto descritos em [`docs/DEPLOYMENT_PLAN.md`](docs/DEPLOYMENT_PLAN.md) e [`docs/RUNBOOK.md`](docs/RUNBOOK.md). Itens marcados como **pendente de definição** dependem de decisões listadas em [`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md), seção 3.15.
+> **Status: em desenvolvimento (endurecimento F5 / pré-`v1.0.0`).** A fundação (F0) e o núcleo de estudo, revisão espaçada, programação competitiva (Codeforces read-only sob demanda, `ADR-015`), planejamento/metas e endurecimento/exportação (F1–F5) estão implementados na branch de trabalho; a promoção final para `v1.0.0` depende do fechamento dos portões operacionais e de produto descritos em [`docs/DEPLOYMENT_PLAN.md`](docs/DEPLOYMENT_PLAN.md) e [`docs/RUNBOOK.md`](docs/RUNBOOK.md); as evidências estão em [`docs/F5-evidencias.md`](docs/F5-evidencias.md). Itens marcados como **pendente de definição** dependem de decisões listadas em [`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md), seção 3.15.
 
 ## Sumário
 
@@ -111,6 +111,8 @@ Os nomes abaixo estão definidos no plano (seção 3.10.6) e nos arquivos de exe
 | `DJANGO_ALLOWED_HOSTS` | Hosts permitidos, separados por vírgula |
 | `DATABASE_URL` | Conexão PostgreSQL (Supabase ou banco local) |
 | `DB_CONNECT_TIMEOUT` | Segundos até desistir da conexão com o banco; padrão `10` |
+| `NUM_PROXIES` | Proxies confiáveis à frente do Django; padrão `0` |
+| `API_THROTTLE_RATE` | Limite por usuário; padrão `120/min` |
 | `CORS_ALLOWED_ORIGINS`, `CSRF_TRUSTED_ORIGINS` | Ex.: `http://localhost:3000` |
 | `COOKIE_DOMAIN` | Somente produção |
 | `JWT_ACCESS_TTL_MINUTES`, `JWT_REFRESH_TTL_DAYS` | Padrões `15` e `7` |
@@ -122,6 +124,7 @@ Os nomes abaixo estão definidos no plano (seção 3.10.6) e nos arquivos de exe
 | Variável | Descrição |
 |---|---|
 | `NEXT_PUBLIC_API_BASE_URL` | Ex.: `http://localhost:8000/api/v1` (ou `/api/v1` com proxy no Next.js) |
+| `API_PROXY_TARGET` | Opcional, no build: o Next faz proxy da API (use `NEXT_PUBLIC_API_BASE_URL=/api/v1`) |
 | `API_INTERNAL_URL` | Ex.: `http://backend:8000/api/v1` (usada pelo servidor Next.js no Docker) |
 | `API_PROXY_TARGET` | Opcional (`D-07`): destino do proxy `/api/v1/*` no build do Next.js para origem única |
 
@@ -228,6 +231,22 @@ python manage.py createsuperuser
 O identificador de login é o **e-mail**.
 
 ## 15. Execução dos testes
+
+**Importar seus dados** (dentro de `backend/`, depois de criar o usuário):
+
+```bash
+python manage.py seed_obmu --file <caminho>/banco-provas-obmu.csv --email <seu-email>
+python manage.py seed_calendar --file <caminho>/calendario-mestre.csv --email <seu-email>
+```
+
+Os dois comandos podem ser repetidos sem duplicar registros. A fonte da verdade é a pasta `Obsidian_Vault_The_Plan/`: ao reimportar, os campos vindos do CSV são sobrescritos. São preservados o texto escrito acima do bloco importado de uma prova e a situação das metas.
+
+**Ponta a ponta e acessibilidade** (com o PostgreSQL local no ar, na raiz):
+
+```bash
+npx --prefix frontend playwright install chromium   # uma vez
+bash scripts/e2e.sh
+```
 
 **Backend** (exige o PostgreSQL local em execução)
 

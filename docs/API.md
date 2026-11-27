@@ -239,3 +239,68 @@ Todos somente leitura; datas e agrupamentos respeitam o fuso do perfil.
 | GET | `/analytics/recurring-errors/` | Ranking de tipos de erro e tópicos com falhas | `from`, `to`, `discipline` | — | `200 {considered, by_error_type[], by_topic[]}` | Sim |
 | GET | `/analytics/planned-vs-actual/` | Horas planejadas vs realizadas | `from*`, `to*` | — | `200 {series[]}` | Sim |
 | GET | `/analytics/cp/` | Resolvidos por tag/rating e evolução por contest | `platform`, `from`, `to` | — | `200 CpAnalytics` | Sim |
+
+## Endpoints implementados
+
+Gerado do esquema OpenAPI em 2026-11-27. Quando divergir das tabelas de especificação acima, vale esta lista e `/api/schema/`: parte do que está especificado ainda não foi construída.
+
+| Métodos | Rota |
+|---|---|
+| GET | `/api/v1/attempts/` |
+| GET, PATCH, DELETE | `/api/v1/attempts/{id}/` |
+| POST | `/api/v1/auth/change-password/` |
+| GET | `/api/v1/auth/csrf/` |
+| POST | `/api/v1/auth/login/` |
+| POST | `/api/v1/auth/logout/` |
+| GET, PATCH | `/api/v1/auth/me/` |
+| POST | `/api/v1/auth/refresh/` |
+| POST | `/api/v1/auth/register/` |
+| GET | `/api/v1/calendar/` |
+| GET | `/api/v1/cp/summary/` |
+| POST | `/api/v1/cp/sync/` |
+| GET | `/api/v1/cp/upsolving/` |
+| POST | `/api/v1/cp/upsolving/import/` |
+| GET, POST | `/api/v1/disciplines/` |
+| POST | `/api/v1/disciplines/reorder/` |
+| GET, PATCH, DELETE | `/api/v1/disciplines/{id}/` |
+| POST | `/api/v1/disciplines/{id}/archive/` |
+| POST | `/api/v1/disciplines/{id}/unarchive/` |
+| GET, POST | `/api/v1/error-types/` |
+| GET, PATCH, DELETE | `/api/v1/error-types/{id}/` |
+| GET, POST | `/api/v1/events/` |
+| GET, PATCH, DELETE | `/api/v1/events/{id}/` |
+| GET, POST | `/api/v1/exercise-sources/` |
+| GET, PATCH, DELETE | `/api/v1/exercise-sources/{id}/` |
+| GET, POST | `/api/v1/exercises/` |
+| GET, PATCH, DELETE | `/api/v1/exercises/{id}/` |
+| GET, POST | `/api/v1/exercises/{id}/attempts/` |
+| GET | `/api/v1/export/ics/` |
+| GET | `/api/v1/export/json/` |
+| GET | `/api/v1/export/markdown/` |
+| GET, POST | `/api/v1/goals/` |
+| GET, PATCH, DELETE | `/api/v1/goals/{id}/` |
+| GET | `/api/v1/periodic-reviews/` |
+| GET, POST | `/api/v1/periodic-reviews/draft/` |
+| DELETE | `/api/v1/periodic-reviews/{id}/` |
+| GET | `/api/v1/reviews/` |
+| GET | `/api/v1/reviews/queue/` |
+| POST | `/api/v1/reviews/schedule/` |
+| GET, DELETE | `/api/v1/reviews/{id}/` |
+| POST | `/api/v1/reviews/{id}/answer/` |
+| GET, POST | `/api/v1/study-sessions/` |
+| GET | `/api/v1/study-sessions/active/` |
+| POST | `/api/v1/study-sessions/active/finish/` |
+| POST | `/api/v1/study-sessions/start/` |
+| GET, PATCH, DELETE | `/api/v1/study-sessions/{id}/` |
+| GET, POST | `/api/v1/tags/` |
+| GET, PATCH, DELETE | `/api/v1/tags/{id}/` |
+| GET, POST | `/api/v1/topics/` |
+| GET | `/api/v1/topics/tree/` |
+| GET, PATCH, DELETE | `/api/v1/topics/{id}/` |
+| POST | `/api/v1/topics/{id}/move/` |
+| GET, POST | `/api/v1/week-blocks/` |
+| GET, PATCH, DELETE | `/api/v1/week-blocks/{id}/` |
+| GET, POST | `/api/v1/week-profiles/` |
+| GET, PATCH, DELETE | `/api/v1/week-profiles/{id}/` |
+| POST | `/api/v1/week-profiles/{id}/activate/` |
+| POST | `/api/v1/week-profiles/{id}/apply/` |

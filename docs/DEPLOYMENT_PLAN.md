@@ -28,8 +28,9 @@ Este documento consolida a estratégia prática de implantação da **Study Plat
 | `D-13` | **Decidida (F0)** | Python 3.13, Django 5.2 LTS, Node 22/24 LTS e Next.js estável vigente. |
 | `D-14` | **Resolvida (23/11/2026)** | Protótipo legado preservado apenas como referência em `docs/legacy-prototype/`. |
 | `ADR-015` | **Aceita (27/11/2026)** | Integração somente leitura e sob demanda com a API pública do Codeforces (sem credenciais, sem filas). |
-| `D-04`, `D-05` | Pendente (formalizar antes de fechar F2) | Algoritmo de revisão espaçada (escada inicial D+3, D+7, D+21 implementada) e regra de exercício `mastered`. |
-| **Fonte Única** | Pendente (formalizar antes de fechar F4) | Definir explicitamente `Plano/` ou Obsidian Vault como fonte única do planejamento e congelar o espelho divergente. |
+| `D-04` | **Decidida (27/11/2026, issue #11)** | Escada de revisão D+3, D+7, D+21. |
+| `D-05` | Pendente | Regra do estado `mastered` (ainda não implementado). |
+| **Fonte Única** | **Decidida (27/11/2026)** | A pasta `Obsidian_Vault_The_Plan/` (fora do repositório) é a fonte única do planejamento. A plataforma importa dela (`seed_calendar`, `seed_obmu`) e nunca escreve nela. |
 | `D-06`, `D-10` | Pendente (antes de módulos acadêmicos/recorrência) | Regras oficiais de aprovação da faculdade e exceções de recorrência de calendário. |
 | `D-02` | Pendente (antes da biblioteca de arquivos) | Provedor de armazenamento de arquivos da biblioteca (interface isolada no backend). |
 | `D-07`, `D-12` | Pendente (antes do Go-Live F5) | Hospedagem de produção sob mesmo domínio registrável (ou proxy reverso via `API_PROXY_TARGET`), plano Supabase e serviço de e-mail. |
