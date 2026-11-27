@@ -454,3 +454,7 @@ frontend/
 | **Vazio** | Todo listagem tem `EmptyState` com explicação e ação primária (ver 3.9). |
 | **Acessibilidade** | Componentes shadcn/Radix como base; `aria-live` para toasts e resultado de revisão; foco gerenciado em diálogos. |
 | **Desempenho** | Rotas carregadas sob demanda; Tiptap e Recharts via `dynamic import`; `next/font` para Inter e JetBrains Mono. |
+
+## Integrações externas
+
+A única integração externa autorizada é a leitura da API pública do Codeforces ([ADR-015](adr/0015-codeforces-readonly-on-demand-api.md)): feita pelo backend, acionada pelo usuário, sem credenciais e sem tarefas em segundo plano.

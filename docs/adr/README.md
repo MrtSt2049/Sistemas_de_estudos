@@ -18,3 +18,4 @@ Registro oficial das decisões arquiteturais da **Study Platform**, extraídas e
 | [ADR-012](0012-django-52-lts-and-python-313.md) | Django 5.2 LTS e Python 3.13 | Aceita |
 | [ADR-013](0013-safe-markdown-katex-and-tiptap-json.md) | Markdown seguro + KaTeX e Tiptap JSON para anotações | Aceita |
 | [ADR-014](0014-utc-timestamps-and-user-timezone.md) | Timestamps em UTC (`timestamptz`) e dia derivado do fuso do perfil | Aceita |
+| [ADR-015](0015-codeforces-readonly-on-demand-api.md) | Integração somente leitura e sob demanda com a API do Codeforces | Aceita |

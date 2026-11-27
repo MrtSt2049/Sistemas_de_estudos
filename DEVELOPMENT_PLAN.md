@@ -79,7 +79,7 @@ Estas funcionalidades **não fazem parte do projeto** e não devem ser implement
 - Aplicativo móvel nativo (a interface web é responsiva).
 - Microsserviços, filas de mensagens, tarefas assíncronas distribuídas (Celery e similares).
 - Execução de código de terceiros (juiz online) e correção automática de soluções.
-- Integração automática com plataformas externas (Codeforces, AtCoder etc.): os registros são manuais ou por importação de arquivo.
+- Integração automática com plataformas externas (AtCoder etc.): os registros são manuais ou por importação de arquivo. **Exceção única ([ADR-015](docs/adr/0015-codeforces-readonly-on-demand-api.md)):** leitura da API pública do Codeforces, somente sob demanda, sem credenciais e sem tarefas em segundo plano.
 - Pagamentos, planos e cobrança.
 - Notificações push e e-mails transacionais (e-mail só entra se D-12 for decidida a favor).
 
