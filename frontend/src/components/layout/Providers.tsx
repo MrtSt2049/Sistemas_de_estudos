@@ -2,6 +2,7 @@
 
 import { QueryClientProvider } from "@tanstack/react-query";
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { Toaster } from "sonner";
 import { createQueryClient } from "@/lib/query-client";
 
 export type ThemeMode = "light" | "dark" | "system";
@@ -49,7 +50,10 @@ export function Providers({ children }: { children: ReactNode }) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        {children}
+        <Toaster theme={theme} position="bottom-right" />
+      </ThemeContext.Provider>
     </QueryClientProvider>
   );
 }

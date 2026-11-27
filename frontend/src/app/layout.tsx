@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import type { ReactNode } from "react";
 import { Providers } from "@/components/layout/Providers";
+import { APP_NAME } from "@/lib/app";
 import "@/styles/globals.css";
 
 const inter = Inter({
@@ -17,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Study Platform",
+  title: APP_NAME,
   description: "Plataforma pessoal de estudos, organização acadêmica e produtividade.",
 };
 

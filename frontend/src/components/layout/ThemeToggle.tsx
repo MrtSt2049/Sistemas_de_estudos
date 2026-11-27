@@ -2,6 +2,7 @@
 
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme, type ThemeMode } from "@/components/layout/Providers";
+import { Button } from "@/components/ui/button";
 
 const NEXT_THEME: Record<ThemeMode, ThemeMode> = {
   system: "dark",
@@ -20,16 +21,16 @@ export function ThemeToggle() {
   const next = NEXT_THEME[theme];
 
   return (
-    <button
-      type="button"
+    <Button
+      variant="secondary"
+      size="sm"
       onClick={() => setTheme(next)}
       aria-label={`Alternar tema (atual: ${LABEL[theme]})`}
-      className="inline-flex h-10 items-center gap-2 rounded-[10px] border border-line bg-surface px-3 text-xs font-medium text-text hover:bg-surface-2"
     >
-      {theme === "dark" && <Moon className="h-4 w-4" strokeWidth={1.8} />}
-      {theme === "light" && <Sun className="h-4 w-4" strokeWidth={1.8} />}
-      {theme === "system" && <Monitor className="h-4 w-4" strokeWidth={1.8} />}
-      <span>{LABEL[theme]}</span>
-    </button>
+      {theme === "dark" && <Moon className="size-4" strokeWidth={1.8} aria-hidden />}
+      {theme === "light" && <Sun className="size-4" strokeWidth={1.8} aria-hidden />}
+      {theme === "system" && <Monitor className="size-4" strokeWidth={1.8} aria-hidden />}
+      <span className="hidden sm:inline">{LABEL[theme]}</span>
+    </Button>
   );
 }
