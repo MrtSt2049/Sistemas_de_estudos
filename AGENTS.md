@@ -21,12 +21,10 @@ Este conjunto de regras adota interpretação consistente inspirada na RFC 2119:
 - **SHOULD / SHOULD NOT**: recomendação forte. Desvios exigem justificativa técnica clara no Pull Request.
 - **MAY**: opcional ou discricionário, desde que não viole nenhuma regra `MUST`.
 
-### 0.2. Estado Atual do Projeto (Pré-Fase 0)
+### 0.2. Estado Atual do Projeto
 
-No estado atual do repositório:
+A **Fase 0** está implementada: `backend/` e `frontend/`, Dockerfiles, arquivos de exemplo de ambiente, ADRs, CI e linters. O estado de cada módulo é registrado em [`CHANGELOG.md`](CHANGELOG.md).
 
-- **Existe**: documentação de planejamento (`DEVELOPMENT_PLAN.md`, `README.md`, `CONTRIBUTING.md`, `CHANGELOG.md`, `docs/ARCHITECTURE.md`, `docs/DATABASE.md`, `docs/API.md`, `docs/ROADMAP.md`), artefatos de referência (`docs/legacy-prototype/`, `docs/design/`) e um rascunho de `docker-compose.yml`.
-- **Ainda não existe** (planejado para a **Fase 0**): código de aplicação em `backend/` e `frontend/` (atualmente apenas `.gitkeep`), Dockerfiles, `.env.example`, `.gitignore`, `.editorconfig`, `docs/adr/`, pipeline de CI (`.github/workflows/ci.yml`) e configuração de linters/testes.
 - **Decisões em aberto (`D-01` a `D-13`)**: registradas em `DEVELOPMENT_PLAN.md` (seção 3.15). Agentes e desenvolvedores **MUST NOT** tratar itens planejados como já implementados nem fixar decisões em aberto sem aprovação explícita.
 
 ### 0.3. Restrições Absolutas de Escopo

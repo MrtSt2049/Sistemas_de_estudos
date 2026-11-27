@@ -2,7 +2,7 @@
 
 Plataforma web pessoal de estudos, organização acadêmica e produtividade: disciplinas, tópicos, exercícios, revisão espaçada, anotações com matemática, notas, calendário, metas e estatísticas, em um só lugar.
 
-> **Status: em planejamento.** Nenhum código de aplicação foi escrito ainda. Este README descreve o projeto e **como ele será executado**; os comandos das seções 8 a 15 são o padrão das ferramentas escolhidas e serão **validados na Fase 0** (ver [Roadmap](#18-roadmap-resumido)). Itens marcados como **pendente de definição** dependem de decisões listadas em [`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md), seção 3.15.
+> **Status: em desenvolvimento.** A fundação (F0) está implementada: backend Django com autenticação por cookies e isolamento por usuário, frontend Next.js com login, Docker e CI. Os módulos de estudo entram a partir da F1 (ver [Roadmap](#18-roadmap-resumido)). Itens marcados como **pendente de definição** dependem de decisões listadas em [`DEVELOPMENT_PLAN.md`](DEVELOPMENT_PLAN.md), seção 3.15.
 
 ## Sumário
 
@@ -48,7 +48,7 @@ Reúne o que normalmente exige várias ferramentas: gerenciador de disciplinas e
 | Infraestrutura | Docker e Docker Compose |
 | Qualidade | pytest, Ruff, mypy, ESLint, Prettier, Vitest, Playwright |
 
-Versões exatas ficam **pendentes de definição** e serão fixadas na Fase 0 (D-13). O plano propõe Django 5.2 LTS e Python 3.13.
+Versões fixadas na Fase 0 (D-13): Python 3.13, Django 5.2 LTS, Node LTS e Next.js 15.
 
 ## 6. Arquitetura geral
 
@@ -68,19 +68,13 @@ Detalhes: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md), [`docs/DATABASE.md`](d
 ## 7. Estrutura de diretórios
 
 ```
-study-platform/
+.
 ├── DEVELOPMENT_PLAN.md      # plano técnico completo (referência oficial)
-├── README.md
-├── CONTRIBUTING.md
-├── CHANGELOG.md
-├── docker-compose.yml       # rascunho; Dockerfiles serão criados na Fase 0
-├── backend/                 # Django + DRF (a criar na Fase 0)
-├── frontend/                # Next.js (a criar na Fase 0)
-└── docs/
-    ├── ARCHITECTURE.md
-    ├── DATABASE.md
-    ├── API.md
-    └── ROADMAP.md
+├── README.md · CONTRIBUTING.md · CHANGELOG.md
+├── docker-compose.yml       # backend, frontend e PostgreSQL local opcional
+├── backend/                 # Django + DRF (apps/, config/, tests/)
+├── frontend/                # Next.js (src/app, src/features, src/components)
+└── docs/                    # arquitetura, banco, API, ADRs e planos
 ```
 
 A estrutura interna de `backend/` e `frontend/` está em `DEVELOPMENT_PLAN.md`, seções 3.6 e 3.7.
@@ -88,28 +82,24 @@ A estrutura interna de `backend/` e `frontend/` está em `DEVELOPMENT_PLAN.md`, 
 ## 8. Pré-requisitos
 
 - Git.
-- Docker Desktop (ou Docker Engine) com Docker Compose v2, para a execução com Docker.
-- Uma conta no [Supabase](https://supabase.com) e um projeto de desenvolvimento, **ou** o perfil de banco local do Compose (seção 11).
-- Para execução sem Docker: Python (versão pendente, D-13) e Node.js LTS.
-- No Windows, recomenda-se WSL2 para melhor desempenho do Docker (a validar na Fase 0).
+- Docker Desktop (ou Docker Engine) com Docker Compose v2.
+- Para executar fora do Docker: Python 3.13 e Node.js 22 ou superior.
+- Um projeto no [Supabase](https://supabase.com) para uso diário, **ou** apenas o PostgreSQL local do Compose.
 
 ## 9. Instalação
 
 ```bash
-git clone <URL-DO-REPOSITORIO>        # URL pendente de definição (D-08)
-cd study-platform
-```
-
-Depois da Fase 0, copie os arquivos de exemplo de variáveis (seção 10):
-
-```bash
+git clone https://github.com/MrtSt2049/Sistemas_de_estudos.git
+cd Sistemas_de_estudos
 cp backend/.env.example backend/.env
 cp frontend/.env.local.example frontend/.env.local
 ```
 
+Preencha `DJANGO_SECRET_KEY` e `DATABASE_URL` em `backend/.env`.
+
 ## 10. Configuração das variáveis de ambiente
 
-Os nomes abaixo estão definidos no plano (seção 3.10.6). Os arquivos `.env.example` serão criados na Fase 0. **Nunca** versione `.env` nem `.env.local`.
+Os nomes abaixo estão definidos no plano (seção 3.10.6) e nos arquivos de exemplo. **Nunca** versione `.env` nem `.env.local`.
 
 **Backend (`backend/.env`)**
 
@@ -120,6 +110,7 @@ Os nomes abaixo estão definidos no plano (seção 3.10.6). Os arquivos `.env.ex
 | `DJANGO_DEBUG` | `false` por padrão; nunca `true` em produção |
 | `DJANGO_ALLOWED_HOSTS` | Hosts permitidos, separados por vírgula |
 | `DATABASE_URL` | Conexão PostgreSQL (Supabase ou banco local) |
+| `DB_CONNECT_TIMEOUT` | Segundos até desistir da conexão com o banco; padrão `10` |
 | `CORS_ALLOWED_ORIGINS`, `CSRF_TRUSTED_ORIGINS` | Ex.: `http://localhost:3000` |
 | `COOKIE_DOMAIN` | Somente produção |
 | `JWT_ACCESS_TTL_MINUTES`, `JWT_REFRESH_TTL_DAYS` | Padrões `15` e `7` |
@@ -149,13 +140,17 @@ O schema é criado **somente pelas migrações do Django** (seção 13); não cr
 # Usando o Supabase (DATABASE_URL apontando para o projeto de desenvolvimento)
 docker compose up --build
 
-# Alternativa: banco PostgreSQL local, via perfil opcional
+# Com PostgreSQL local
 docker compose --profile local-db up --build
 ```
 
-Com o perfil `local-db`, defina `LOCAL_DB_NAME`, `LOCAL_DB_USER` e `LOCAL_DB_PASSWORD` em um `.env` na raiz e aponte `DATABASE_URL` para o host `db` (ver `DEVELOPMENT_PLAN.md`, seção 3.10.6).
+Com o banco local, use em `backend/.env`:
 
-Endereços previstos em desenvolvimento:
+```
+DATABASE_URL=postgresql://study_platform:study_platform@db:5432/study_platform
+```
+
+O banco local também é exposto em `127.0.0.1:5432` para executar testes e `manage.py` fora do Docker.
 
 | Serviço | URL |
 |---|---|
@@ -164,15 +159,18 @@ Endereços previstos em desenvolvimento:
 | Documentação da API (somente fora de produção) | http://localhost:8000/api/docs/ |
 | Saúde | http://localhost:8000/healthz e http://localhost:8000/readyz |
 
-Parar e remover os contêineres:
+Para parar: `docker compose --profile local-db down`.
+
+Imagens de produção:
 
 ```bash
-docker compose down
+docker build --target production -t sp-backend ./backend
+docker build --target production --build-arg NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1 -t sp-frontend ./frontend
 ```
 
 ## 12. Execução local sem Docker
 
-**Backend**
+**Backend** (com o PostgreSQL local do Compose: `docker compose --profile local-db up -d db`)
 
 ```bash
 cd backend
@@ -183,11 +181,13 @@ python manage.py migrate
 python manage.py runserver         # http://localhost:8000
 ```
 
+Fora do Docker, aponte `DATABASE_URL` para `127.0.0.1`, não `localhost`. No Windows, `localhost` resolve primeiro para IPv6 e cada conexão demora vários segundos.
+
 **Frontend** (em outro terminal)
 
 ```bash
 cd frontend
-npm install
+npm ci
 npm run dev                        # http://localhost:3000
 ```
 
@@ -228,7 +228,7 @@ O identificador de login é o **e-mail**.
 
 ## 15. Execução dos testes
 
-**Backend**
+**Backend** (exige o PostgreSQL local em execução)
 
 ```bash
 cd backend
@@ -237,6 +237,9 @@ pytest --cov                       # com cobertura
 ruff check .                       # lint
 ruff format --check .              # formatação
 mypy .                             # tipos
+lint-imports                       # fronteiras entre apps
+python manage.py spectacular --validate --file schema.yml --settings=config.settings.test
+pip-audit -r requirements/base.txt
 ```
 
 **Frontend**
@@ -244,10 +247,13 @@ mypy .                             # tipos
 ```bash
 cd frontend
 npm run lint
-npx tsc --noEmit                   # tipos
+npm run typecheck
+npm test                           # Vitest
+npm run build
+npm audit --audit-level=high
 ```
 
-Os scripts `npm` para testes unitários (Vitest) e ponta a ponta (Playwright) têm **nomes pendentes de definição** (Fase 0). Os testes usam PostgreSQL local ou de CI, **nunca** o banco de produção do Supabase.
+Os testes usam PostgreSQL local ou de CI, **nunca** o banco de produção do Supabase.
 
 ## 16. Convenções de desenvolvimento
 

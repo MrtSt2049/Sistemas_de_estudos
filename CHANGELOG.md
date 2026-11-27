@@ -14,6 +14,13 @@ Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/); 
 - Frontend (`frontend/`): projeto Next.js (App Router, TypeScript `strict`, saída `standalone`), tokens claro/escuro do Design System Voltage sem *flash*, `api-client` centralizado com cookies `HttpOnly` + `X-CSRFToken` + refresh único, shell autenticado, tela `/login`, `Dockerfile` multi-stage e teste unitário com Vitest.
 - `docker-compose.yml` atualizado com `backend`, `frontend` e perfil opcional `local-db`.
 
+### Corrigido
+- RLS passa a ser reaplicado após cada `migrate`: as tabelas criadas depois da migração `core.0002` (`django_session`, `token_blacklist_*` e as de módulos futuros) ficavam sem RLS.
+- Testes e `/readyz` não travam mais com o banco inacessível (`DB_CONNECT_TIMEOUT`) nem esperam o IPv6 de `localhost` no Windows.
+
+### Segurança
+- Dependências atualizadas para corrigir vulnerabilidades conhecidas: Django REST Framework 3.18, Zod 4, Vitest 5 e PostCSS 8.5.
+
 ### Alterado
 - Consolidação das pastas `Estudos` e `Site_de_estudos` em uma só (`Site_de_estudos`). O protótipo Next.js + Drizzle foi removido; dados, regras de domínio, testes e decisões úteis foram preservados em `docs/legacy-prototype/` e o prompt do design system em `docs/design/`. PDFs e mini-sites de disciplina ficam em `Sistema_de_estudos/Materiais/`, fora do repositório.
 
